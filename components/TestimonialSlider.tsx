@@ -1,0 +1,203 @@
+import React, { useRef, useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Phone, Video, Camera, Send } from 'lucide-react';
+import { Testimonial } from '../types';
+import { TESTIMONIALS } from '../constants';
+
+const TestimonialChatCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
+  return (
+    <div className="w-[300px] h-[550px] bg-black rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-900 flex flex-col shrink-0 select-none">
+      {/* Chat Header */}
+      <div className="bg-black text-white p-3 flex items-center justify-between border-b border-gray-800">
+        <div className="flex items-center gap-2">
+          <ChevronLeft size={20} className="text-white" />
+          <img src={testimonial.avatar} alt={testimonial.author} className="w-8 h-8 rounded-full border border-gray-600" />
+          <div className="flex flex-col">
+            <span className="text-xs font-bold leading-none">{testimonial.author}</span>
+            <span className="text-[10px] text-gray-400 leading-none mt-0.5">{testimonial.handle}</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 text-gray-300">
+          <Phone size={18} />
+          <Video size={18} />
+        </div>
+      </div>
+
+      {/* Chat Body */}
+      <div className="flex-1 bg-black p-3 overflow-y-auto scrollbar-hide flex flex-col gap-3">
+        <div className="text-center text-[10px] text-gray-500 font-medium py-2">
+          {testimonial.time}
+        </div>
+
+        {testimonial.messages.map((msg, idx) => (
+          <div key={idx} className={`flex flex-col ${msg.isUser ? 'items-start' : 'items-end'}`}>
+            
+            {msg.image && (
+              <div className={`mb-1 overflow-hidden rounded-2xl max-w-[70%] border border-gray-800 ${msg.isUser ? 'rounded-tl-none' : 'rounded-tr-none'}`}>
+                <img src={msg.image} alt="Attachment" className="w-full h-auto pointer-events-none" />
+              </div>
+            )}
+
+            {msg.text && (
+              <div 
+                className={`px-3 py-2 rounded-2xl max-w-[80%] text-xs leading-relaxed
+                ${msg.isUser 
+                  ? 'bg-gray-800 text-gray-100 rounded-tl-none' 
+                  : 'bg-purple-600 text-white rounded-tr-none'}`
+                }
+              >
+                {msg.text}
+              </div>
+            )}
+          </div>
+        ))}
+        <div className="mt-auto text-right text-[10px] text-gray-600 font-medium">Seen</div>
+      </div>
+      
+      {/* Chat Footer */}
+      <div className="p-3 bg-black flex items-center gap-3">
+         <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-blue-500">
+           <Camera size={16} />
+         </div>
+         <div className="flex-1 h-9 bg-gray-900 rounded-full border border-gray-800 flex items-center px-3 text-gray-500 text-xs">
+           Message...
+         </div>
+         <div className="text-gray-500">
+           <Send size={18}/>
+         </div>
+      </div>
+    </div>
+  );
+};
+
+export const TestimonialSlider: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const animationRef = useRef<number | null>(null);
+
+  // Auto-scroll animation
+  useEffect(() => {
+    const autoScroll = () => {
+      if (scrollRef.current && !isDragging && !isHovering) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        
+        // Check if we've reached the end (middle point since we duplicated)
+        const maxScroll = scrollWidth / 2;
+        
+        if (scrollLeft >= maxScroll) {
+          // Instantly reset to start without animation for seamless loop
+          scrollRef.current.scrollLeft = 0;
+        } else {
+          // Smooth auto-scroll - increase speed here (0.5 to 2)
+          scrollRef.current.scrollLeft += 0.8;
+        }
+      }
+      animationRef.current = requestAnimationFrame(autoScroll);
+    };
+
+    animationRef.current = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isDragging, isHovering]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const scrollAmount = 320; // Card width + gap
+      current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX - (scrollRef.current?.offsetLeft || 0));
+    setScrollLeft(scrollRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setIsHovering(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
+  // Touch handlers for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - (scrollRef.current?.offsetLeft || 0));
+    setScrollLeft(scrollRef.current?.scrollLeft || 0);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - (scrollRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
+  return (
+    <div className="relative group px-4 md:px-12">
+      <button 
+        onClick={() => scroll('left')} 
+        className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 shadow-xl rounded-full items-center justify-center text-gray-800 hover:text-pink-500 transition-all opacity-0 group-hover:opacity-100 transform hover:scale-110"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      
+      <div 
+        ref={scrollRef}
+        className="flex gap-6 md:gap-8 overflow-x-auto pb-12 pt-4 scrollbar-hide"
+        style={{ 
+          cursor: isDragging ? 'grabbing' : 'grab',
+          scrollBehavior: 'auto' // Prevent smooth scroll from interfering
+        }}
+        onMouseDown={handleMouseDown}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
+      >
+        {/* Render testimonials three times for seamless loop */}
+        {[...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
+          <div key={`${t.id}-${index}`} className="snap-start shrink-0 transition-transform duration-300 hover:scale-[1.02]">
+            <TestimonialChatCard testimonial={t} />
+          </div>
+        ))}
+      </div>
+
+      <button 
+        onClick={() => scroll('right')} 
+        className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 shadow-xl rounded-full items-center justify-center text-gray-800 hover:text-pink-500 transition-all opacity-0 group-hover:opacity-100 transform hover:scale-110"
+      >
+        <ChevronRight size={24} />
+      </button>
+    </div>
+  );
+};
