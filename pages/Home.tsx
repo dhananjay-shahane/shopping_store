@@ -52,8 +52,8 @@ export const Home: React.FC<HomeProps> = ({ navigateTo, products, onProductClick
 
   const handleCategoryClick = (catName: string) => {
     const boyCats = ['Cars', 'Traffic', 'Aeroplane'];
-    if (boyCats.includes(catName)) navigateTo(PageView.BOYS);
-    else navigateTo(PageView.GIRLS);
+    if (boyCats.includes(catName)) navigateTo(PageView.Plushies);
+    else navigateTo(PageView.Bouquet);
   };
 
   return (

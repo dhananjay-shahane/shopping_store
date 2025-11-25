@@ -17,7 +17,7 @@ export default function CollectionsPage() {
         {/* Main Categories */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <FadeIn delay={0}>
-            <Link href="/category/boys" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
+            <Link href="/category/Plushies" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
               <img src="https://picsum.photos/seed/boyscoll/800/600" alt="Boys" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
                  <h2 className="text-3xl md:text-4xl text-white font-bold uppercase tracking-widest">Boys</h2>
@@ -25,7 +25,7 @@ export default function CollectionsPage() {
             </Link>
           </FadeIn>
           <FadeIn delay={100}>
-            <Link href="/category/girls" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
+            <Link href="/category/Bouquet" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
               <img src="https://picsum.photos/seed/girlscoll/800/600" alt="Girls" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
                  <h2 className="text-3xl md:text-4xl text-white font-bold uppercase tracking-widest">Girls</h2>

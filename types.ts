@@ -47,7 +47,9 @@ export enum PageView {
   CART = 'CART',
   COLLECTIONS = 'COLLECTIONS',
   SUB_COLLECTION = 'SUB_COLLECTION',
-  SHOP = 'SHOP'
+  SHOP = 'SHOP',
+  Bouquet= 'Bouquet',
+  Plushies = 'Plushies',
 }
 
 export interface CartItem {

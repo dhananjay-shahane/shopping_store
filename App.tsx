@@ -139,6 +139,22 @@ const App: React.FC = () => {
               onProductClick={navigateToProduct}
             />
           )}
+          {currentView === PageView.Bouquet && (
+            <CategoryPage 
+              categoryName="Bouquet" 
+              products={products} 
+              navigateTo={navigateTo} 
+              onProductClick={navigateToProduct}
+            />
+          )}
+          {currentView === PageView.Plushies && (
+            <CategoryPage 
+              categoryName="Plushies" 
+              products={products} 
+              navigateTo={navigateTo} 
+              onProductClick={navigateToProduct}
+            />
+          )}
           {currentView === PageView.SUB_COLLECTION && (
             <CategoryPage 
               categoryName={selectedCategory} 
