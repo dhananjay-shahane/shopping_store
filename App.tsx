@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { INITIAL_PRODUCTS } from './constants';
 import { Product, PageView, CartItem } from './types';
 import AdminPanel from './components/AdminPanel';
-import GeminiChat from './components/GeminiChat';
 
 // Components
 import { Header } from './components/Header';
@@ -183,7 +182,6 @@ const App: React.FC = () => {
         clearCart={clearCart}
       />
       <Footer navigateTo={navigateTo} />
-      <GeminiChat products={products} />
     </div>
   );
 };

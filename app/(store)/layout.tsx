@@ -4,7 +4,6 @@ import Navbar from '@/components/Layout/Navbar';
 import Footer from '@/components/Layout/Footer';
 import HeaderBanner from '@/components/Layout/HeaderBanner';
 import { CartDrawer } from '@/components/Cart/CartDrawer';
-import GeminiChat from '@/components/GeminiChat';
 import { PRODUCTS } from '@/lib/data';
 
 export default function StoreLayout({
@@ -21,7 +20,6 @@ export default function StoreLayout({
       </main>
       <CartDrawer />
       <Footer />
-      <GeminiChat products={PRODUCTS} />
     </div>
   );
 }
