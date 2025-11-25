@@ -85,7 +85,7 @@ export const Home: React.FC<HomeProps> = ({ navigateTo, products, onProductClick
                           <p className="text-pink-500 text-[10px] font-bold uppercase tracking-widest mb-1">{slide.subtitle}</p>
                           <h3 className="text-gray-900 font-serif text-2xl leading-none mb-3">{slide.title}</h3>
                           <button 
-                            onClick={() => navigateTo(PageView.GIRLS)} 
+                            onClick={() => navigateTo(PageView.Bouquet)} 
                             className="text-pink-500 font-bold text-sm border-b-2 border-pink-500 pb-0.5 hover:text-pink-700 hover:border-pink-700 transition-all"
                           >
                             Shop now
@@ -164,7 +164,7 @@ export const Home: React.FC<HomeProps> = ({ navigateTo, products, onProductClick
               Create picture-perfect memories with our coordinated sets designed to strengthen the bond between siblings.
             </p>
             <button 
-              onClick={() => navigateTo(PageView.BOYS)}
+              onClick={() => navigateTo(PageView.Plushies)}
               className="bg-gray-900 text-white px-8 py-3 md:px-10 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-pink-500 transition-all shadow-lg"
             >
               Shop Collection
