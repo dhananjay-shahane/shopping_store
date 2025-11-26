@@ -7,7 +7,7 @@ const OurStudioSection = () => {
   return (
     <section className="py-16 md:py-20">
       <div className="bg-accent py-10 md:py-12 text-center mb-12 md:mb-16">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl text-foreground font-semibold tracking-widest uppercase" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+        <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide uppercase">
           OUR STUDIO
         </h1>
       </div>
