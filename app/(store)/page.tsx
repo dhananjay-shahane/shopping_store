@@ -7,6 +7,7 @@ import { PRODUCTS, CATEGORIES } from '@/app/_shared/constants';
 import { FadeIn } from './_components/UI/FadeIn';
 import ProductCard from './_components/Product/ProductCard';
 import { TestimonialSlider } from './_components/UI/TestimonialSlider';
+import BouquetSection from './_components/Product/BouquetSection';
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -51,16 +52,16 @@ export default function HomePage() {
       <section className="relative w-full h-[600px] md:h-[800px] bg-neutral-50 group flex flex-col">
         <div className="relative flex-1 overflow-hidden">
           {slides.map((slide, index) => (
-            <div 
+            <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
             >
-              <img 
-                src={slide.image} 
-                alt={slide.title} 
+              <img
+                src={slide.image}
+                alt={slide.title}
                 className={`w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-linear ${index === currentSlide && isPlaying ? 'scale-110' : 'scale-100'}`}
               />
-              
+
               <div className="absolute bottom-24 left-6 md:bottom-32 md:left-24 z-20">
                 <FadeIn delay={300} className={index === currentSlide ? 'block' : 'hidden'}>
                   <div className="bg-background/95 backdrop-blur-sm px-6 py-5 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-background/50 max-w-xs animate-in slide-in-from-bottom-4 duration-700 flex items-start gap-4">
@@ -71,8 +72,8 @@ export default function HomePage() {
                     <div>
                       <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">{slide.subtitle}</p>
                       <h3 className="text-foreground font-serif text-2xl leading-none mb-3">{slide.title}</h3>
-                      <Link 
-                        href="/category/bouquet" 
+                      <Link
+                        href="/category/bouquet"
                         className="text-primary font-bold text-sm border-b-2 border-primary pb-0.5 hover:text-primary-700 hover:border-primary-700 transition-all"
                       >
                         Shop now
@@ -87,28 +88,28 @@ export default function HomePage() {
 
         <div className="bg-background border-t border-neutral-100 h-14 flex items-center justify-center relative z-30">
           <div className="flex items-center h-full">
-            <button 
-              onClick={prevSlide} 
+            <button
+              onClick={prevSlide}
               className="h-full px-6 text-neutral-400 hover:text-foreground hover:bg-neutral-50 transition-all border-r border-neutral-100"
             >
               <ChevronLeft size={16} />
             </button>
-            
+
             <div className="px-8 text-xs font-medium tracking-widest text-neutral-500 flex items-center h-full tabular-nums">
               <span className="text-foreground">{currentSlide + 1}</span>
               <span className="mx-1">/</span>
               <span>{slides.length}</span>
             </div>
 
-            <button 
-              onClick={nextSlide} 
+            <button
+              onClick={nextSlide}
               className="h-full px-6 text-neutral-400 hover:text-foreground hover:bg-neutral-50 transition-all border-l border-r border-neutral-100"
             >
               <ChevronRight size={16} />
             </button>
 
-            <button 
-              onClick={togglePlay} 
+            <button
+              onClick={togglePlay}
               className="h-full px-6 text-neutral-400 hover:text-foreground hover:bg-neutral-50 transition-all"
             >
               {isPlaying ? <Pause size={14} fill="currentColor" /> : <Play size={14} fill="currentColor" />}
@@ -124,7 +125,7 @@ export default function HomePage() {
               <h1 className="text-3xl md:text-4xl text-foreground font-normal tracking-wide uppercase">SHOP BY CATEGORY</h1>
             </div>
           </FadeIn>
-          
+
           <div className="flex flex-wrap container mx-auto px-4 justify-center gap-6 md:gap-10">
             {CATEGORIES.map((cat, idx) => (
               <FadeIn key={cat.id} delay={idx * 100}>
@@ -148,7 +149,7 @@ export default function HomePage() {
             <p className="text-neutral-600 mb-8 md:mb-10 leading-relaxed max-w-md text-sm md:text-base">
               Create picture-perfect memories with our coordinated sets designed to strengthen the bond between siblings.
             </p>
-            <Link 
+            <Link
               href="/category/plushies"
               className="bg-foreground text-background px-8 py-3 md:px-10 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all shadow-lg"
             >
@@ -157,33 +158,21 @@ export default function HomePage() {
           </FadeIn>
         </div>
         <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden group">
-          <img 
-            src="https://picsum.photos/seed/siblings/800/600" 
-            alt="Brother and Sister" 
+          <img
+            src="https://picsum.photos/seed/siblings/800/600"
+            alt="Brother and Sister"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="bg-accent py-10 text-center mb-12">
-          <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">Make your own bouquet</h1>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12 container mx-auto px-4">
-          {PRODUCTS.slice(0, 4).map((product, idx) => (
-            <ProductCard key={product.id} product={product} delay={idx * 100} />
-          ))}
-        </div>
-        <div className="text-center mt-12">
-          <Link href="/shop" className="text-foreground border-b border-foreground pb-1 uppercase tracking-widest text-xs font-bold hover:text-primary hover:border-primary transition-all">View All Products</Link>
-        </div>
-      </section>
+      <BouquetSection />
 
       <section className="py-20 overflow-hidden">
         <div className="bg-accent py-10 text-center mb-12">
           <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">HAPPY CUSTOMERS</h1>
         </div>
-        
+
         <TestimonialSlider />
       </section>
 
