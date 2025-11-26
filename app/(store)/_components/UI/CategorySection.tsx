@@ -1,4 +1,3 @@
-
 import React from "react";
 import Link from "next/link";
 import { CATEGORIES } from "@/app/_shared/constants";
@@ -17,7 +16,7 @@ export default function CategorySection() {
         </FadeIn>
 
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
             {CATEGORIES.map((cat, idx) => (
               <FadeIn key={cat.id} delay={idx * 50}>
                 <Link
@@ -32,7 +31,7 @@ export default function CategorySection() {
                       loading="lazy"
                     />
                   </div>
-                  <span className="text-xs md:text-sm text-neutral-800 group-hover:text-primary transition-colors inline-flex items-center gap-1">
+                  <span className="text-md md:text-xl text-neutral-800 group-hover:text-primary transition-colors inline-flex items-center gap-1">
                     {cat.name}{" "}
                     <span className="text-neutral-400 group-hover:text-primary">
                       →

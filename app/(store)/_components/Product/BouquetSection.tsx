@@ -78,7 +78,7 @@ const BouquetSection = () => {
         </div>
 
         <div className="container mx-auto px-4 md:px-8">
-          <div className="mb-8 space-y-1 text-neutral-600 text-sm">
+          <div className="mb-8 space-y-1 text-neutral-600 text-md">
             <p>1. Add your favourite flowers to the cart</p>
             <p>2. Add a choosing of your favourite sheet</p>
             <p>3. That's it! We'll prepare an exceptional bouquet for you!</p>
@@ -175,7 +175,7 @@ const BouquetSection = () => {
       {selectedProduct && (
         <>
           <div
-            className="fixed inset-0 bg-black/40 z-50 animate-in fade-in duration-200"
+            className="fixed inset-0 bg-black/40 z-60 animate-in fade-in duration-200"
             onClick={() => setSelectedProduct(null)}
           />
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
