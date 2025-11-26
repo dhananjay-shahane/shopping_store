@@ -1,16 +1,8 @@
 
 import React from 'react';
 import type { Metadata } from 'next';
-import { Assistant } from 'next/font/google';
 import { CartProvider } from '@/app/_shared/context/CartContext';
 import '@/styles/globals.css';
-
-const assistant = Assistant({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-assistant',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'Sui Dhaga - Handcrafted Crochet Flowers',
@@ -23,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={assistant.variable}>
+    <html lang="en" style={{ fontFamily: 'Assistant, sans-serif' }}>
       <head>
         <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
       </head>
-      <body className={`${assistant.className} antialiased`}>
+      <body className="antialiased" style={{ fontFamily: 'Assistant, sans-serif' }}>
         <CartProvider>
           {children}
         </CartProvider>
