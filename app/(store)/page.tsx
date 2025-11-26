@@ -18,19 +18,19 @@ export default function HomePage() {
 
   const slides = [
     {
-      image: "https://picsum.photos/seed/flower1/1920/1080",
-      title: "Divya Kamal",
-      subtitle: "Timeless Classics"
+      image: "/images/products/crochet_flowers_bouq_dd4ac4d3.jpg",
+      title: "Handcrafted Blooms",
+      subtitle: "Timeless Beauty"
     },
     {
-      image: "https://picsum.photos/seed/knitwear2/1920/1080",
-      title: "Winter Bloom",
-      subtitle: "Handcrafted Luxury"
+      image: "/images/products/crochet_flowers_bouq_12075390.jpg",
+      title: "Forever Flowers",
+      subtitle: "Crochet Collection"
     },
     {
-      image: "https://picsum.photos/seed/kidsfashion3/1920/1080",
-      title: "Festive Joy",
-      subtitle: "New Collection"
+      image: "/images/products/crochet_flowers_bouq_b8936798.jpg",
+      title: "Gift of Love",
+      subtitle: "New Arrivals"
     }
   ];
 

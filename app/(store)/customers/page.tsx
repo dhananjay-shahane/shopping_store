@@ -20,8 +20,17 @@ export default function CustomersPage() {
 
        <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-               <img key={i} src={`https://picsum.photos/seed/cust${i}/400/400`} className="w-full h-full object-cover rounded-sm hover:opacity-90 transition-opacity" alt={`Customer ${i}`}/>
+             {[
+               '/images/products/crochet_flower_bouqu_3b4a27c4.jpg',
+               '/images/products/crochet_rose_flower__b3d2bb80.jpg',
+               '/images/products/crochet_sunflower_ha_470a6b18.jpg',
+               '/images/products/crochet_lily_flower__cfbf45a0.jpg',
+               '/images/products/crochet_flower_bouqu_0db0fe72.jpg',
+               '/images/products/crochet_tulip_flower_d600607c.jpg',
+               '/images/products/crochet_plushie_toy__da4b85af.jpg',
+               '/images/products/flower_arrangement_p_f02bb313.jpg',
+             ].map((img, i) => (
+               <img key={i} src={img} className="w-full aspect-square object-cover rounded-sm hover:opacity-90 transition-opacity" alt={`Customer photo ${i + 1}`}/>
              ))}
           </div>
        </div>

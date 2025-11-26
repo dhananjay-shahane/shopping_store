@@ -47,8 +47,11 @@ export interface CartItem {
   id: string;
   product: Product;
   quantity: number;
-  size: string;
-  type: string;
+  size?: string;
+  type?: string;
+  color?: string;
+  giftWrap?: boolean;
+  customMessage?: string;
   embroideryName?: string;
 }
 

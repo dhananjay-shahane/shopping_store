@@ -43,7 +43,13 @@ export const CartDrawer = () => {
                         <h4 className="font-medium text-sm text-foreground">{item.product.name}</h4>
                         <button onClick={() => removeFromCart(item.id)}><X size={16} className="text-neutral-400 hover:text-error"/></button>
                       </div>
-                      <p className="text-xs text-neutral-500">{item.size} / {item.type}</p>
+                      <p className="text-xs text-neutral-500">
+                        {item.color && <span>{item.color}</span>}
+                        {item.giftWrap && <span> | Gift Wrapped</span>}
+                      </p>
+                      {item.customMessage && (
+                        <p className="text-xs text-neutral-400 italic">"{item.customMessage}"</p>
+                      )}
                     </div>
                     <div className="flex justify-between items-center">
                       <div className="inline-flex items-center border border-neutral-200 bg-white">

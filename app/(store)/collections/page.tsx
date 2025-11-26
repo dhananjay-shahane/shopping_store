@@ -15,18 +15,18 @@ export default function CollectionsPage() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <FadeIn delay={0}>
-            <Link href="/category/Plushies" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
-              <img src="https://picsum.photos/seed/boyscoll/800/600" alt="Boys" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <Link href="/category/bouquet" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
+              <img src="/images/products/crochet_flower_bouqu_a44aff12.jpg" alt="Bouquets" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-foreground/30 group-hover:bg-foreground/40 transition-colors flex items-center justify-center">
-                 <h2 className="text-3xl md:text-4xl text-background font-bold uppercase tracking-widest">Boys</h2>
+                 <h2 className="text-3xl md:text-4xl text-background font-bold uppercase tracking-widest">Bouquets</h2>
               </div>
             </Link>
           </FadeIn>
           <FadeIn delay={100}>
-            <Link href="/category/Bouquet" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
-              <img src="https://picsum.photos/seed/girlscoll/800/600" alt="Girls" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <Link href="/category/plushies" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
+              <img src="/images/products/crochet_plushie_toy__9982db6b.jpg" alt="Plushies" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-foreground/30 group-hover:bg-foreground/40 transition-colors flex items-center justify-center">
-                 <h2 className="text-3xl md:text-4xl text-background font-bold uppercase tracking-widest">Girls</h2>
+                 <h2 className="text-3xl md:text-4xl text-background font-bold uppercase tracking-widest">Plushies</h2>
               </div>
             </Link>
           </FadeIn>

@@ -91,10 +91,10 @@ export default function Navbar() {
           </button>
 
           <nav className="hidden md:flex flex-1 gap-6 lg:gap-8 text-sm font-normal text-neutral-700 tracking-wide items-center bg-background h-full">
-            <Link href="/" className={`hover:text-foreground transition-colors py-1 ${pathname === '/' ? 'text-foreground' : ''}`}>Home</Link>
+            <Link href="/" className={`hover:text-foreground transition-colors py-1 ${pathname === '/' ? 'text-foreground border-b border-foreground' : ''}`}>Home</Link>
             <Link href="/shop" className={`hover:text-foreground transition-colors py-1 ${pathname === '/shop' || pathname.startsWith('/shop') ? 'text-foreground border-b border-foreground' : ''}`}>Shop All</Link>
             <Link href="/contact" className={`hover:text-foreground transition-colors py-1 ${pathname === '/contact' ? 'text-foreground border-b border-foreground' : ''}`}>Contact Us</Link>
-            <Link href="/studio" className={`hover:text-foreground transition-colors py-1 ${pathname === '/studio' ? 'text-foreground' : ''}`}>About Us</Link>
+            <Link href="/studio" className={`hover:text-foreground transition-colors py-1 ${pathname === '/studio' ? 'text-foreground border-b border-foreground' : ''}`}>About Us</Link>
             
             <div className="relative group h-full flex items-center">
               <span className="flex items-center gap-1 hover:text-primary transition-colors h-full cursor-pointer">

@@ -34,7 +34,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const addToCart = (item: CartItem) => {
     const existingItemIndex = cart.findIndex(
-      (i) => i.product.id === item.product.id && i.size === item.size && i.type === item.type && i.embroideryName === item.embroideryName
+      (i) => i.product.id === item.product.id && 
+             i.color === item.color && 
+             i.giftWrap === item.giftWrap &&
+             i.customMessage === item.customMessage
     );
 
     if (existingItemIndex > -1) {

@@ -18,7 +18,7 @@ const OurStudioSection = () => {
             <div className="max-w-md mx-auto md:mx-0">
               <div className="aspect-[4/5] overflow-hidden shadow-sm">
                 <img 
-                  src="https://picsum.photos/seed/crochetstudio/500/625" 
+                  src="/images/products/crochet_craft_studio_d2d0e937.jpg" 
                   alt="Our Crochet Studio" 
                   className="w-full h-full object-cover"
                 />

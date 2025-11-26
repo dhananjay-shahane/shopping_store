@@ -16,7 +16,7 @@ export default function StudioPage() {
                <div className="flex justify-center md:justify-end">
                   <div className="w-64 md:w-80">
                      <img
-                        src="https://picsum.photos/seed/founder/400/500"
+                        src="/images/products/woman_crafting_handm_cc86993a.jpg"
                         className="w-full h-auto object-cover"
                         alt="Mahek Satyen Choksi - Founder"
                      />
@@ -70,7 +70,7 @@ export default function StudioPage() {
                   <div className="flex justify-center md:justify-start">
                      <div className="w-full max-w-md">
                         <img
-                           src="https://picsum.photos/seed/artisans/500/400"
+                           src="/images/products/woman_crafting_handm_f2341c71.jpg"
                            className="w-full h-auto object-cover"
                            alt="Our Artisans at work"
                         />

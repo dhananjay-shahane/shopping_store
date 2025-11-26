@@ -15,7 +15,7 @@ const BestsellerSection = () => {
     name: "Blooming Rose",
     price: 450,
     category: "Phool",
-    image: "https://picsum.photos/seed/bloomingrose/600/700",
+    image: "/images/products/crochet_rose_flower__b3d2bb80.jpg",
     description:
       "Beautiful handcrafted blooming rose arrangement in a ceramic vase.",
   };
