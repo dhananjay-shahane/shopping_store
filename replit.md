@@ -1,7 +1,7 @@
-# Sui Dhaga - Kids Clothing Store
+# Sui Dhaga - Handcrafted Gifts Store
 
 ## Overview
-Premium handcrafted kids clothing e-commerce website built with Next.js 14. The application features a modern shopping experience with product catalogs, cart functionality, and admin panel.
+Premium handcrafted bouquets, plushies, and gifts e-commerce website built with Next.js 14. The application features a modern shopping experience with product catalogs, cart functionality, testimonials, and admin panel.
 
 ## Project Architecture
 
@@ -12,43 +12,61 @@ Premium handcrafted kids clothing e-commerce website built with Next.js 14. The 
 - **Icons**: Lucide React
 - **Language**: TypeScript 5.0
 
-### Project Structure
+### Project Structure (Reorganized for Next.js Best Practices)
 ```
 app/
-├── (admin)/          # Admin dashboard routes
+├── _shared/              # Shared utilities (types, constants, context)
+│   ├── constants.ts      # Products, categories, FAQs, testimonials data
+│   ├── types.ts          # TypeScript interfaces
+│   └── context/
+│       └── CartContext.tsx  # Cart state management
+├── (admin)/              # Admin dashboard routes
 │   └── dashboard/
-├── (store)/          # Customer-facing routes
-│   ├── bestseller/
-│   ├── cart/
-│   ├── category/
-│   ├── checkout/
-│   ├── collections/
-│   ├── contact/
-│   ├── customers/
-│   ├── login/
-│   ├── product/
-│   ├── shop/
-│   └── studio/
-├── layout.tsx        # Root layout with CartProvider
-components/           # Reusable UI components
-├── Cart/
-├── Layout/
-└── Product/
-context/             # React Context (Cart management)
-lib/                 # Utility functions and data
-services/            # External service integrations
-styles/              # Global CSS styles
+├── (store)/              # Customer-facing routes
+│   ├── _components/      # Store-specific components
+│   │   ├── Cart/
+│   │   │   └── CartDrawer.tsx
+│   │   ├── Layout/
+│   │   │   ├── Navbar.tsx
+│   │   │   └── Footer.tsx
+│   │   ├── Product/
+│   │   │   └── ProductCard.tsx
+│   │   └── UI/
+│   │       ├── FadeIn.tsx
+│   │       └── TestimonialSlider.tsx
+│   ├── category/[slug]/  # Dynamic category pages
+│   ├── contact/          # Contact page with FAQ
+│   ├── product/[id]/     # Product detail pages
+│   ├── shop/             # Shop all products
+│   ├── studio/           # About us page
+│   ├── layout.tsx        # Store layout (Navbar + Footer)
+│   └── page.tsx          # Homepage
+├── layout.tsx            # Root layout with CartProvider
+styles/
+└── globals.css           # Global Tailwind CSS styles
 ```
 
 ## Recent Changes (November 26, 2025)
 
-### GitHub Import Setup
-- Removed legacy Vite configuration files (index.html, index.tsx, App.tsx, vite.config.ts)
-- Configured for Replit environment:
-  - Updated dev server to run on 0.0.0.0:5000
-  - Set up Next.js workflow for frontend
-  - Configured deployment with build and start scripts
-- Updated .gitignore for Next.js best practices
+### Project Reorganization
+- Consolidated all code into proper Next.js App Router structure
+- Moved shared utilities (types, constants, context) to `app/_shared/`
+- Organized store components into `app/(store)/_components/`
+- Removed legacy root-level directories (components/, context/, lib/, pages/, services/)
+- Updated all import paths to use new structure
+- Enhanced homepage with hero slider, category grid, testimonials, and feature highlights
+- Added shop page with filtering (price) and sorting (alphabetical, price)
+- Fixed all component paths and imports for Next.js compatibility
+
+### Features Implemented
+- Responsive navigation with announcement bar slider
+- Collection dropdown menu with category links
+- Mobile menu with slide-in animation and submenu
+- Search overlay with product filtering
+- Shopping cart drawer with quantity controls
+- Product cards with hover effects and "New" badges
+- Testimonial slider with Instagram-style chat cards
+- Contact page with form and FAQ accordion
 
 ## Development
 
@@ -71,20 +89,27 @@ Configured for Replit Autoscale deployment:
 - Deployment type: Autoscale (stateless web application)
 
 ## Features
-- Product catalog with categories (Bouquet, Plushies, etc.)
-- Shopping cart with quantity management
-- Product detail pages
-- Admin panel for product management
+- Product catalog with categories (Bouquet, Plushies, Pots, Bags, etc.)
+- Shopping cart with quantity management (persisted in localStorage)
+- Product detail pages with size/type selection
+- Filtering and sorting on shop page
+- Testimonial slider with customer reviews
+- Admin panel for product management (at /dashboard)
 - Responsive design with Tailwind CSS
-- Image optimization with Next.js Image component
 - Client-side cart state management with Context API
 
 ## External Integrations
 - Razorpay (payment processing - script loaded in layout)
 - Remote images from picsum.photos and ui-avatars.com
 
+## Import Path Conventions
+- Shared utilities: `@/app/_shared/types`, `@/app/_shared/constants`, `@/app/_shared/context/CartContext`
+- Store components: Use relative paths from page files (e.g., `../_components/Product/ProductCard`)
+- Global styles: `@/styles/globals.css`
+
 ## Notes
 - The application uses Next.js App Router (app directory)
-- Cart state is managed via React Context (CartProvider)
+- Route groups: `(store)` for customer pages, `(admin)` for admin pages
+- Components prefixed with underscore `_components` are not routed
+- Cart state is managed via React Context (CartProvider in root layout)
 - No backend database currently configured (products loaded from constants)
-- Admin panel accessible at /dashboard route

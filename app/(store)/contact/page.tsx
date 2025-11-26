@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import { MapPin, Mail, Phone, ChevronUp, ChevronDown } from 'lucide-react';
-import { FAQS } from '@/constants';
+import { FAQS } from '@/app/_shared/constants';
 
 export default function ContactPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);

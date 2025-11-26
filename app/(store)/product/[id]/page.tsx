@@ -3,9 +3,9 @@
 
 import React, { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { PRODUCTS } from '@/lib/data';
-import { useCart } from '@/context/CartContext';
-import ProductCard from '@/components/Product/ProductCard';
+import { PRODUCTS } from '@/app/_shared/constants';
+import { useCart } from '@/app/_shared/context/CartContext';
+import ProductCard from '../../_components/Product/ProductCard';
 import { ChevronDown, Check, Minus, Plus, Send } from 'lucide-react';
 
 export default function ProductDetailPage() {

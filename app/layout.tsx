@@ -1,7 +1,7 @@
 
 import React from 'react';
 import type { Metadata } from 'next';
-import { CartProvider } from '@/context/CartContext';
+import { CartProvider } from '@/app/_shared/context/CartContext';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {

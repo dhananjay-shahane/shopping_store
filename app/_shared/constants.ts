@@ -1,28 +1,4 @@
-export interface Product {
-  id: string;
-  name: string;
-  price: number;
-  category: string;
-  image: string;
-  description: string;
-  isNew?: boolean;
-}
-
-export interface Category {
-  id: string;
-  name: string;
-  image: string;
-}
-
-export interface Testimonial {
-  id: string;
-  author: string;
-  handle: string;
-  avatar: string;
-  platform: 'instagram' | 'whatsapp';
-  time: string;
-  messages: { isUser: boolean; text?: string; image?: string }[];
-}
+import { Category, FAQItem, Product, Testimonial } from './types';
 
 export const PRODUCTS: Product[] = [
   {
@@ -136,22 +112,23 @@ export const PRODUCTS: Product[] = [
   }
 ];
 
-
 export const CATEGORIES: Category[] = [
-  { id: 'c1', name: 'Phool (Make your Own bouquet)', image: 'https://picsum.photos/seed/cat1/150/150' },
   { id: 'c2', name: 'Bouquet', image: 'https://picsum.photos/seed/cat2/150/150' },
   { id: 'c3', name: 'Plushies', image: 'https://picsum.photos/seed/cat3/150/150' },
   { id: 'c4', name: 'Pots', image: 'https://picsum.photos/seed/cat4/150/150' },
   { id: 'c5', name: 'Bags', image: 'https://picsum.photos/seed/cat5/150/150' },
-  { id: 'c6', name: 'Home decor accessories', image: 'https://picsum.photos/seed/cat6/150/150' },
-  { id: 'c7', name: 'Flower Arrangements', image: 'https://picsum.photos/seed/cat7/150/150' },
   { id: 'c8', name: 'Kids toys', image: 'https://picsum.photos/seed/cat8/150/150' },
-  { id: 'c9', name: 'Keychains and Car hangings', image: 'https://picsum.photos/seed/cat9/150/150' },
   { id: 'c10', name: 'Valentines', image: 'https://picsum.photos/seed/cat10/150/150' },
   { id: 'c11', name: 'Hair accessories', image: 'https://picsum.photos/seed/cat11/150/150' },
-  { id: 'c12', name: 'Phool ki Tokri', image: 'https://picsum.photos/seed/cat12/150/150' },
-  { id: 'c13', name: 'Flower bouquet Throws / blankets', image: 'https://picsum.photos/seed/cat13/150/150' },
-]
+];
+
+export const FAQS: FAQItem[] = [
+  { question: "What makes Suidhaga unique?", answer: "We combine traditional embroidery with modern, playful themes for children." },
+  { question: "Does Suidhaga handle custom designs?", answer: "Yes, we accept custom orders for special occasions. Please contact us directly." },
+  { question: "What sizes does Suidhaga come in?", answer: "We cater to children from ages 1 to 12 years." },
+  { question: "Why need to pay 50% in advance?", answer: "Since many items are made to order, an advance ensures material reservation." },
+  { question: "How long does shipping take?", answer: "Standard shipping takes 5-7 business days across the country." },
+];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
@@ -180,7 +157,35 @@ export const TESTIMONIALS: Testimonial[] = [
       { isUser: false, text: "Thankyou for your order 🫶❤️" },
       { isUser: true, image: "https://picsum.photos/seed/review2/300/400" },
       { isUser: true, text: "hyyy Thank You so much ❤️ Bouquet are very beautiful ❤️" },
-       { isUser: true, text: "ohk" }
+      { isUser: true, text: "ohk" }
+    ]
+  },
+  {
+    id: 't3',
+    author: "prolaymondal...",
+    handle: "prolay_m",
+    avatar: "https://ui-avatars.com/api/?name=Prolay&background=random&color=fff",
+    platform: "instagram",
+    time: "Yesterday at 4:47 PM",
+    messages: [
+      { isUser: true, image: "https://picsum.photos/seed/review3/300/400" },
+      { isUser: true, text: "It's really beautiful.... Thank you so much for this one.. Keep it up 🤍🌻" },
+      { isUser: false, text: "thankyouu so much🎀 this really means a lot. Im so glad you liked it 🎀 keep supporting <3" }
+    ]
+  },
+  {
+    id: 't4',
+    author: "CHAITHRA",
+    handle: "_chaithraa.gowda",
+    avatar: "https://ui-avatars.com/api/?name=Chaithra&background=red&color=fff",
+    platform: "instagram",
+    time: "17:03",
+    messages: [
+      { isUser: true, text: "I don't know about that But the message have came like that" },
+      { isUser: true, text: "Hey i received the package. Thanks a lot it's so beautifull" },
+      { isUser: false, text: "Thankyouuu🥰" },
+      { isUser: true, image: "https://picsum.photos/seed/review4/300/400" },
+      { isUser: true, text: "Once again thanks for this beautiful 🥹❤️ Best gift i would ever got for myself" }
     ]
   }
 ];

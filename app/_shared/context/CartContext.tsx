@@ -1,16 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Product } from '@/lib/data';
-
-export interface CartItem {
-  id: string;
-  product: Product;
-  quantity: number;
-  size: string;
-  type: string;
-  embroideryName?: string;
-}
+import { Product, CartItem } from '../types';
 
 interface CartContextType {
   cart: CartItem[];
@@ -30,7 +21,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Hydrate cart from local storage if needed
   useEffect(() => {
     const savedCart = localStorage.getItem('suidhaga_cart');
     if (savedCart) {

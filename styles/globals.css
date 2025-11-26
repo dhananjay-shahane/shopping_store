@@ -1,9 +1,68 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Primary Colors (Pink theme) */
+    --color-primary: 236 72 153;
+    --color-primary-50: 253 242 248;
+    --color-primary-100: 252 231 243;
+    --color-primary-200: 251 207 232;
+    --color-primary-300: 249 168 212;
+    --color-primary-400: 244 114 182;
+    --color-primary-500: 236 72 153;
+    --color-primary-600: 219 39 119;
+    --color-primary-700: 190 24 93;
+    --color-primary-800: 157 23 77;
+    --color-primary-900: 131 24 67;
+    
+    /* Secondary Colors (Yellow/Gold theme) */
+    --color-secondary: 250 204 21;
+    --color-secondary-50: 254 252 232;
+    --color-secondary-100: 254 249 195;
+    --color-secondary-200: 254 240 138;
+    --color-secondary-300: 253 224 71;
+    --color-secondary-400: 250 204 21;
+    --color-secondary-500: 234 179 8;
+    --color-secondary-600: 202 138 4;
+    
+    /* Accent Colors */
+    --color-accent: 252 228 220;
+    --color-accent-light: 254 242 242;
+    --color-accent-dark: 248 200 186;
+    
+    /* Neutral Colors (Gray scale) */
+    --color-neutral: 107 114 128;
+    --color-neutral-50: 249 250 251;
+    --color-neutral-100: 243 244 246;
+    --color-neutral-200: 229 231 235;
+    --color-neutral-300: 209 213 219;
+    --color-neutral-400: 156 163 175;
+    --color-neutral-500: 107 114 128;
+    --color-neutral-600: 75 85 99;
+    --color-neutral-700: 55 65 81;
+    --color-neutral-800: 31 41 55;
+    --color-neutral-900: 17 24 39;
+    
+    /* Background Colors */
+    --color-background: 255 255 255;
+    --color-background-secondary: 249 250 251;
+    --color-background-muted: 243 244 246;
+    
+    /* Foreground/Text Colors */
+    --color-foreground: 17 24 39;
+    --color-foreground-muted: 107 114 128;
+    
+    /* Border Colors */
+    --color-border: 243 244 246;
+    
+    /* Semantic Colors */
+    --color-success: 34 197 94;
+    --color-warning: 234 179 8;
+    --color-error: 239 68 68;
+  }
+
   /* Assistant Font Configuration - Weights 200 to 800 */
   @font-face {
     font-family: 'Assistant';
@@ -71,11 +130,11 @@
 
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
-      display: none;
+    display: none;
   }
   .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   
   .animate-in {
@@ -90,6 +149,22 @@
   .slide-in-from-right {
     animation-name: slideInRight;
   }
+  
+  .slide-in-from-left {
+    animation-name: slideInLeft;
+  }
+  
+  .slide-in-from-top-2 {
+    animation-name: slideInTop;
+  }
+  
+  .slide-in-from-bottom-4 {
+    animation-name: slideInBottom;
+  }
+  
+  .zoom-in-95 {
+    animation-name: zoomIn95;
+  }
 }
 
 @keyframes fadeIn {
@@ -102,10 +177,28 @@
   to { transform: translateX(0); }
 }
 
-:root {
-  --font-body-family: 'Assistant', sans-serif;
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInTop {
+  from { transform: translateY(-8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInBottom {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn95 {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 body {
-  font-family: var(--font-body-family);
+  font-family: 'Assistant', sans-serif;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
 }

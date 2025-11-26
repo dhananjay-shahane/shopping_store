@@ -3,8 +3,8 @@
 
 import React from 'react';
 import { useParams } from 'next/navigation';
-import { PRODUCTS } from '@/lib/data';
-import ProductCard from '@/components/Product/ProductCard';
+import { PRODUCTS } from '@/app/_shared/constants';
+import ProductCard from '../../_components/Product/ProductCard';
 
 export default function CategoryPage() {
   const { slug } = useParams();

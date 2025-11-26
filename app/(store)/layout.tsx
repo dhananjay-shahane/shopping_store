@@ -1,10 +1,7 @@
-
 import React from 'react';
-import Navbar from '@/components/Layout/Navbar';
-import Footer from '@/components/Layout/Footer';
-import HeaderBanner from '@/components/Layout/HeaderBanner';
-import { CartDrawer } from '@/components/Cart/CartDrawer';
-import { PRODUCTS } from '@/lib/data';
+import Navbar from './_components/Layout/Navbar';
+import Footer from './_components/Layout/Footer';
+import { CartDrawer } from './_components/Cart/CartDrawer';
 
 export default function StoreLayout({
   children,
@@ -13,7 +10,6 @@ export default function StoreLayout({
 }) {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-pink-100 flex flex-col">
-      <HeaderBanner />
       <Navbar />
       <main className="flex-grow animate-in fade-in duration-500">
         {children}
