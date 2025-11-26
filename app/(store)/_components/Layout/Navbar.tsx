@@ -47,6 +47,8 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
+  const isCollectionActive = pathname.startsWith('/category/');
+
   const announcements = [
     "Make your own bouquet",
     "Free shipping above 1099",
@@ -148,8 +150,8 @@ export default function Navbar() {
             </Link>
 
             <div className="relative group h-full flex items-center">
-              <span className="flex items-center gap-1 hover:text-primary transition-colors h-full cursor-pointer">
-                Collection <ChevronDown size={14} />
+              <span className={`flex items-center gap-1 hover:text-foreground transition-colors h-full cursor-pointer py-1 ${isCollectionActive ? 'text-foreground border-b border-foreground' : ''}`}>
+                Collection <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-200" />
               </span>
 
               <div className="absolute top-full left-0 w-72 bg-background border border-neutral-100 shadow-xl hidden group-hover:block z-50 animate-in fade-in zoom-in-95 duration-200">
