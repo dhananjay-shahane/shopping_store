@@ -113,13 +113,15 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const CATEGORIES: Category[] = [
-  { id: 'c2', name: 'Bouquet', image: 'https://picsum.photos/seed/cat2/150/150' },
-  { id: 'c3', name: 'Plushies', image: 'https://picsum.photos/seed/cat3/150/150' },
-  { id: 'c4', name: 'Pots', image: 'https://picsum.photos/seed/cat4/150/150' },
-  { id: 'c5', name: 'Bags', image: 'https://picsum.photos/seed/cat5/150/150' },
-  { id: 'c8', name: 'Kids toys', image: 'https://picsum.photos/seed/cat8/150/150' },
-  { id: 'c10', name: 'Valentines', image: 'https://picsum.photos/seed/cat10/150/150' },
-  { id: 'c11', name: 'Hair accessories', image: 'https://picsum.photos/seed/cat11/150/150' },
+  { id: 'c1', name: 'Phool ( Make your Own bouquet )', image: 'https://picsum.photos/seed/phoolcat/400/400' },
+  { id: 'c2', name: 'Bouquet', image: 'https://picsum.photos/seed/bouquetcat/400/400' },
+  { id: 'c3', name: 'Plushies', image: 'https://picsum.photos/seed/plushiescat/400/400' },
+  { id: 'c4', name: 'Pots', image: 'https://picsum.photos/seed/potscat/400/400' },
+  { id: 'c5', name: 'Bags', image: 'https://picsum.photos/seed/bagscat/400/400' },
+  { id: 'c6', name: 'Home decor accessories', image: 'https://picsum.photos/seed/homedecorcat/400/400' },
+  { id: 'c7', name: 'Flower Arrangements', image: 'https://picsum.photos/seed/flowerarrangecat/400/400' },
+  { id: 'c8', name: 'Kids toys', image: 'https://picsum.photos/seed/kidstoyscat/400/400' },
+  { id: 'c9', name: 'Keychains and Car hangings', image: 'https://picsum.photos/seed/keychaincat/400/400' },
 ];
 
 export const FAQS: FAQItem[] = [

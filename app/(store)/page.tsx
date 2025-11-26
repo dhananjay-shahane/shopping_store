@@ -118,25 +118,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-background">
-        <div className="text-center">
+      <section className="py-16 bg-background">
+        <div>
           <FadeIn>
-            <div className="bg-accent py-10 text-center mb-12">
-              <h1 className="text-3xl md:text-4xl text-foreground font-normal tracking-wide uppercase">SHOP BY CATEGORY</h1>
+            <div className="bg-accent py-8 text-center mb-8">
+              <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide uppercase">SHOP BY CATEGORY</h1>
             </div>
           </FadeIn>
 
-          <div className="flex flex-wrap container mx-auto px-4 justify-center gap-6 md:gap-10">
-            {CATEGORIES.map((cat, idx) => (
-              <FadeIn key={cat.id} delay={idx * 100}>
-                <Link href={`/category/${cat.name.toLowerCase()}`} className="flex flex-col items-center group cursor-pointer">
-                  <div className="w-20 h-20 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-neutral-100 group-hover:border-primary-200 transition-all mb-4 md:mb-5 relative shadow-sm">
-                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <span className="text-xs md:text-sm font-bold text-neutral-800 uppercase tracking-widest group-hover:text-primary transition-colors">{cat.name}</span>
-                </Link>
-              </FadeIn>
-            ))}
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              {CATEGORIES.map((cat, idx) => (
+                <FadeIn key={cat.id} delay={idx * 50}>
+                  <Link href={`/category/${cat.name.toLowerCase()}`} className="block group cursor-pointer">
+                    <div className="aspect-square overflow-hidden bg-neutral-100 mb-2">
+                      <img 
+                        src={cat.image} 
+                        alt={cat.name} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                    <span className="text-xs md:text-sm text-neutral-800 group-hover:text-primary transition-colors inline-flex items-center gap-1">
+                      {cat.name} <span className="text-neutral-400 group-hover:text-primary">→</span>
+                    </span>
+                  </Link>
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </div>
       </section>
