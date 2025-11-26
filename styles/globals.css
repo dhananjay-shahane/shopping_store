@@ -63,55 +63,55 @@
     --color-error: 239 68 68;
   }
 
-  /* Assistant Font Configuration - Weights 200 to 800 */
+  /* Assistant Font Configuration - Local Font Files */
   @font-face {
     font-family: 'Assistant';
     font-style: normal;
     font-weight: 200;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/assistant/v19/2sDZZJG6lIu3Z_K7D5P5.woff2) format('woff2');
+    src: url('/fonts/assistant/Assistant-ExtraLight.otf') format('opentype');
   }
   @font-face {
     font-family: 'Assistant';
     font-style: normal;
     font-weight: 300;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/assistant/v19/2sDZZJG6lIu3Z_K7D5P5.woff2) format('woff2');
+    src: url('/fonts/assistant/Assistant-Light.otf') format('opentype');
   }
   @font-face {
     font-family: 'Assistant';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/assistant/v19/2sDZZJG6lIu3Z_K7D5P5.woff2) format('woff2');
+    src: url('/fonts/assistant/Assistant-Regular.otf') format('opentype');
   }
   @font-face {
     font-family: 'Assistant';
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/assistant/v19/2sDZZJG6lIu3Z_K7D5P5.woff2) format('woff2');
+    src: url('/fonts/assistant/Assistant-Regular.otf') format('opentype');
   }
   @font-face {
     font-family: 'Assistant';
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/assistant/v19/2sDZZJG6lIu3Z_K7D5P5.woff2) format('woff2');
+    src: url('/fonts/assistant/Assistant-SemiBold.otf') format('opentype');
   }
   @font-face {
     font-family: 'Assistant';
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/assistant/v19/2sDZZJG6lIu3Z_K7D5P5.woff2) format('woff2');
+    src: url('/fonts/assistant/Assistant-Bold.otf') format('opentype');
   }
   @font-face {
     font-family: 'Assistant';
     font-style: normal;
     font-weight: 800;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/assistant/v19/2sDZZJG6lIu3Z_K7D5P5.woff2) format('woff2');
+    src: url('/fonts/assistant/Assistant-ExtraBold.otf') format('opentype');
   }
 
   /* Custom Heading Font */
