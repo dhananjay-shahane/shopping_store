@@ -1,5 +1,72 @@
 import { Category, FAQItem, Product, Testimonial } from './types';
 
+export const BOUQUET_FLOWERS: Product[] = [
+  {
+    id: 'f1',
+    name: 'The Van Gogh flower(starry night)',
+    price: 550,
+    originalPrice: 650,
+    category: 'Phool',
+    image: 'https://picsum.photos/seed/vangoghflower/400/500',
+    description: 'Beautiful blue daisy inspired by Van Gogh starry night.',
+    isNew: true,
+    hasVariants: false,
+  },
+  {
+    id: 'f2',
+    name: 'Sunflower',
+    price: 300,
+    category: 'Phool',
+    image: 'https://picsum.photos/seed/sunflowercrochet/400/500',
+    description: 'Handcrafted crochet sunflower with vibrant colors.',
+    hasVariants: false,
+  },
+  {
+    id: 'f3',
+    name: 'Tulip',
+    price: 300,
+    category: 'Phool',
+    image: 'https://picsum.photos/seed/tulipcrochet/400/500',
+    description: 'Colorful tulip flowers in various shades.',
+    hasVariants: true,
+    colors: [
+      { name: 'Pink tulip', color: '#F472B6' },
+      { name: 'Yellow tulip', color: '#FBBF24' },
+      { name: 'Blue tulip', color: '#93C5FD' },
+      { name: 'Purple tulip', color: '#C4B5FD' },
+    ],
+  },
+  {
+    id: 'f4',
+    name: 'Rose Branch',
+    price: 480,
+    category: 'Phool',
+    image: 'https://picsum.photos/seed/rosebranch/400/500',
+    description: 'Beautiful crochet rose branch with multiple blooms.',
+    hasVariants: true,
+    colors: [
+      { name: 'Red rose branch', color: '#DC2626' },
+      { name: 'Pink rose branch', color: '#F472B6' },
+      { name: 'Yellow rose branch', color: '#FBBF24' },
+      { name: 'Purple rose branch', color: '#C4B5FD' },
+    ],
+  },
+  {
+    id: 'f5',
+    name: 'XL Lily',
+    price: 450,
+    category: 'Phool',
+    image: 'https://picsum.photos/seed/xllily/400/500',
+    description: 'Extra large lily flower for statement arrangements.',
+    hasVariants: true,
+    colors: [
+      { name: 'White lily', color: '#FFFFFF' },
+      { name: 'Pink lily', color: '#F9A8D4' },
+      { name: 'Orange lily', color: '#FB923C' },
+    ],
+  },
+];
+
 export const PRODUCTS: Product[] = [
   {
     id: '1',

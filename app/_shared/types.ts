@@ -1,11 +1,19 @@
+export interface ProductColor {
+  name: string;
+  color: string;
+}
+
 export interface Product {
   id: string;
   name: string;
   price: number;
+  originalPrice?: number;
   category: string;
   image: string;
   description: string;
   isNew?: boolean;
+  hasVariants?: boolean;
+  colors?: ProductColor[];
 }
 
 export interface Category {
