@@ -46,41 +46,41 @@ const BouquetSection = () => {
   };
 
   return (
-    <>
-      <div className="container mx-auto px-4 mb-8">
-        <div className="mb-8 space-y-2 text-neutral-600 text-sm">
+    <section className="py-16 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="mb-8 space-y-2 text-neutral-600 text-sm max-w-2xl">
           <p>1. Add your favourite flowers to the cart</p>
           <p>2. Add a choosing of your favourite sheet</p>
           <p>3. That's it! We'll prepare an exceptional bouquet for you!</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {bouquetProducts.map((product) => (
             <div key={product.id} className="group">
-              <div className="aspect-square bg-neutral-100 mb-3 overflow-hidden relative">
+              <div className="aspect-square bg-neutral-50 mb-3 overflow-hidden relative rounded-sm">
                 <img 
                   src={product.image} 
                   alt={product.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {product.isNew && (
-                  <div className="absolute top-2 left-2 bg-foreground text-background px-2 py-1 text-xs font-medium">
+                  <div className="absolute top-3 left-3 bg-foreground text-background px-3 py-1 text-xs font-semibold uppercase tracking-wider">
                     Sale
                   </div>
                 )}
               </div>
               <div>
-                <p className="text-xs text-neutral-400 uppercase tracking-wide mb-1">PHOOLDHAGE</p>
-                <h3 className="text-sm font-medium mb-2">{product.name}</h3>
+                <p className="text-xs text-neutral-400 uppercase tracking-widest mb-1.5">PHOOLDHAGE</p>
+                <h3 className="text-sm font-medium mb-2 text-foreground">{product.name}</h3>
                 <div className="flex items-center gap-2 mb-3">
                   {product.isNew && (
                     <span className="text-xs text-neutral-400 line-through">Rs. {(product.price + 100).toLocaleString()}.00</span>
                   )}
-                  <span className="text-sm font-medium">Rs. {product.price.toLocaleString()}.00</span>
+                  <span className="text-sm font-semibold text-foreground">Rs. {product.price.toLocaleString()}.00</span>
                 </div>
                 <button
                   onClick={() => setSelectedProduct(product)}
-                  className="w-full border border-neutral-300 py-2 text-xs hover:bg-neutral-50 transition-colors"
+                  className="w-full border border-foreground py-2.5 text-xs font-medium uppercase tracking-wider hover:bg-foreground hover:text-background transition-all duration-300"
                 >
                   Choose options
                 </button>
@@ -89,14 +89,14 @@ const BouquetSection = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <span className="text-sm text-neutral-500">1/3</span>
-          <button className="p-1 hover:text-primary">
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <span className="text-sm text-neutral-500 tabular-nums">1/3</span>
+          <button className="p-2 hover:text-primary transition-colors" aria-label="Previous">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M15 18l-6-6 6-6"/>
             </svg>
           </button>
-          <button className="p-1 hover:text-primary">
+          <button className="p-2 hover:text-primary transition-colors" aria-label="Next">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M9 18l6-6-6-6"/>
             </svg>
@@ -104,7 +104,7 @@ const BouquetSection = () => {
         </div>
 
         <div className="text-center">
-          <button className="bg-foreground text-background px-8 py-3 text-xs font-medium uppercase tracking-wide hover:bg-neutral-800 transition-colors">
+          <button className="bg-foreground text-background px-10 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-sm">
             View all
           </button>
         </div>
@@ -113,23 +113,24 @@ const BouquetSection = () => {
       {selectedProduct && (
         <>
           <div 
-            className="fixed inset-0 bg-black/40 z-50 animate-in fade-in duration-200"
+            className="fixed inset-0 bg-black/50 z-50 animate-in fade-in duration-200"
             onClick={() => setSelectedProduct(null)}
           />
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
             <div 
-              className="bg-background max-w-4xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto animate-in zoom-in-95 fade-in duration-200 shadow-2xl"
+              className="bg-background max-w-4xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto animate-in zoom-in-95 fade-in duration-200 shadow-2xl rounded-lg"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 p-2 hover:bg-neutral-100 rounded-full z-10"
+                className="absolute top-4 right-4 p-2 hover:bg-neutral-100 rounded-full z-10 transition-colors"
+                aria-label="Close"
               >
                 <X size={20} />
               </button>
 
               <div className="grid md:grid-cols-2 gap-8 p-8">
-                <div className="aspect-square bg-neutral-50">
+                <div className="aspect-square bg-neutral-50 rounded-sm overflow-hidden">
                   <img 
                     src={selectedProduct.image}
                     alt={selectedProduct.name}
@@ -139,7 +140,7 @@ const BouquetSection = () => {
 
                 <div className="flex flex-col">
                   <p className="text-xs text-neutral-400 uppercase tracking-widest mb-2">PHOOLDHAGE</p>
-                  <h2 className="text-3xl font-light mb-4">{selectedProduct.name}</h2>
+                  <h2 className="text-3xl font-light mb-4 text-foreground">{selectedProduct.name}</h2>
                   
                   <div className="flex items-center gap-3 mb-6">
                     {selectedProduct.isNew && (
@@ -147,15 +148,15 @@ const BouquetSection = () => {
                         Rs. {(selectedProduct.price + 100).toLocaleString()}.00
                       </span>
                     )}
-                    <span className="text-xl font-medium">Rs. {selectedProduct.price.toLocaleString()}.00</span>
+                    <span className="text-xl font-semibold text-foreground">Rs. {selectedProduct.price.toLocaleString()}.00</span>
                   </div>
 
-                  <p className="text-xs text-neutral-500 mb-4">
-                    <span className="underline cursor-pointer">Shipping</span> calculated at checkout.
+                  <p className="text-xs text-neutral-500 mb-6">
+                    <span className="underline cursor-pointer hover:text-foreground">Shipping</span> calculated at checkout.
                   </p>
 
                   <div className="mb-6">
-                    <label className="block text-sm font-medium mb-3">
+                    <label className="block text-sm font-semibold mb-3 text-foreground">
                       Color: {selectedColor}
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -163,24 +164,26 @@ const BouquetSection = () => {
                         <button
                           key={color.name}
                           onClick={() => setSelectedColor(color.name)}
-                          className={`w-8 h-8 rounded-full border-2 transition-all ${
+                          className={`w-9 h-9 rounded-full border-2 transition-all ${
                             selectedColor === color.name 
-                              ? 'border-foreground scale-110' 
-                              : 'border-neutral-300 hover:border-neutral-400'
+                              ? 'border-foreground scale-110 shadow-md' 
+                              : 'border-neutral-300 hover:border-neutral-400 hover:scale-105'
                           }`}
                           style={{ backgroundColor: color.color }}
                           title={color.name}
+                          aria-label={color.name}
                         />
                       ))}
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <label className="block text-sm font-medium mb-3">Quantity</label>
-                    <div className="flex items-center border border-neutral-300 w-32">
+                    <label className="block text-sm font-semibold mb-3 text-foreground">Quantity</label>
+                    <div className="flex items-center border border-neutral-300 w-36 rounded-sm overflow-hidden">
                       <button 
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="w-10 h-10 flex items-center justify-center hover:bg-neutral-50"
+                        className="w-12 h-12 flex items-center justify-center hover:bg-neutral-50 transition-colors"
+                        aria-label="Decrease quantity"
                       >
                         <Minus size={16} />
                       </button>
@@ -188,11 +191,12 @@ const BouquetSection = () => {
                         type="text" 
                         value={quantity}
                         readOnly
-                        className="flex-1 text-center text-sm focus:outline-none"
+                        className="flex-1 text-center text-sm focus:outline-none bg-transparent"
                       />
                       <button 
                         onClick={() => setQuantity(quantity + 1)}
-                        className="w-10 h-10 flex items-center justify-center hover:bg-neutral-50"
+                        className="w-12 h-12 flex items-center justify-center hover:bg-neutral-50 transition-colors"
+                        aria-label="Increase quantity"
                       >
                         <Plus size={16} />
                       </button>
@@ -202,17 +206,17 @@ const BouquetSection = () => {
                   <div className="flex flex-col gap-3 mt-auto">
                     <button
                       onClick={handleAddToCart}
-                      className="w-full border border-foreground py-3 text-sm font-medium hover:bg-neutral-50 transition-colors"
+                      className="w-full border-2 border-foreground py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-foreground hover:text-background transition-all duration-300"
                     >
                       Add to cart
                     </button>
                     <button
                       onClick={handleBuyNow}
-                      className="w-full bg-foreground text-background py-3 text-sm font-medium hover:bg-neutral-800 transition-colors"
+                      className="w-full bg-foreground text-background py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-colors shadow-sm"
                     >
                       Buy it now
                     </button>
-                    <button className="text-sm text-neutral-600 hover:text-primary mt-2 flex items-center justify-center gap-2">
+                    <button className="text-sm text-neutral-600 hover:text-primary mt-2 flex items-center justify-center gap-2 transition-colors">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
                         <polyline points="16 6 12 2 8 6"/>
@@ -222,7 +226,7 @@ const BouquetSection = () => {
                     </button>
                   </div>
 
-                  <button className="mt-6 text-sm text-neutral-600 hover:text-primary flex items-center gap-2 justify-center">
+                  <button className="mt-6 text-sm text-neutral-600 hover:text-primary flex items-center gap-2 justify-center transition-colors">
                     View full details
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -234,7 +238,7 @@ const BouquetSection = () => {
           </div>
         </>
       )}
-    </>
+    </section>
   );
 };
 
