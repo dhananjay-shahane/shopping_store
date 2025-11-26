@@ -7,7 +7,7 @@ const OurStudioSection = () => {
   return (
     <section className="py-16 md:py-20">
       <div className="bg-accent py-10 md:py-12 text-center mb-12 md:mb-16">
-        <h1 className="text-2xl md:text-3xl text-foreground tracking-wide uppercase" style={{ fontFamily: 'var(--font-heading-family)', fontWeight: 'var(--font-heading-weight)', fontStyle: 'var(--font-heading-style)' }}>
+        <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide uppercase">
           OUR STUDIO
         </h1>
       </div>
@@ -27,7 +27,7 @@ const OurStudioSection = () => {
           </FadeIn>
 
           <FadeIn delay={100}>
-            <div className="space-y-6 md:space-y-7 text-neutral-600 text-base md:text-lg leading-relaxed md:leading-loose pt-2 md:pt-4" style={{ fontFamily: 'var(--font-body-family)', fontWeight: 'var(--font-body-weight)' }}>
+            <div className="space-y-6 md:space-y-7 text-neutral-600 text-base md:text-lg leading-relaxed md:leading-loose pt-2 md:pt-4" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
               <p>
                 Welcome to our cozy crochet studio nestled in the heart of Surat. Our small home-based business is lovingly run by a mother daughter duo.
               </p>
