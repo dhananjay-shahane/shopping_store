@@ -111,8 +111,6 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-            <div className="h-4 w-px bg-neutral-300 mx-2"></div>
-            <Link href="/dashboard" className="text-neutral-400 hover:text-primary transition-colors">Admin</Link>
           </nav>
 
           <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center group">

@@ -151,31 +151,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-primary-50 min-h-[500px] flex flex-col md:flex-row items-stretch">
-        <div className="w-full md:w-1/2 p-8 md:p-24 flex flex-col justify-center items-start">
-          <FadeIn>
-            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-4">Matching Sets</span>
-            <h2 className="text-3xl md:text-5xl font-light mb-6 md:mb-8 text-foreground">Brother & Sister</h2>
-            <p className="text-neutral-600 mb-8 md:mb-10 leading-relaxed max-w-md text-sm md:text-base">
-              Create picture-perfect memories with our coordinated sets designed to strengthen the bond between siblings.
-            </p>
-            <Link
-              href="/category/plushies"
-              className="bg-foreground text-background px-8 py-3 md:px-10 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all shadow-lg"
-            >
-              Shop Collection
-            </Link>
-          </FadeIn>
-        </div>
-        <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden group">
-          <img
-            src="https://picsum.photos/seed/siblings/800/600"
-            alt="Brother and Sister"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-        </div>
-      </section>
-
       <BouquetSection />
 
       <OurStudioSection />

@@ -219,24 +219,24 @@ const BouquetSection = () => {
 
                   <div className="mb-6">
                     <label className="block text-sm mb-3">Quantity</label>
-                    <div className="flex items-center border border-neutral-300 w-32">
+                    <div className="inline-flex items-center border border-neutral-300 bg-white">
                       <button 
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="w-10 h-10 flex items-center justify-center hover:bg-neutral-50 transition-colors"
+                        className="w-10 h-10 flex items-center justify-center hover:bg-neutral-50 transition-colors border-r border-neutral-300"
                       >
-                        <Minus size={16} />
+                        <Minus size={14} />
                       </button>
                       <input 
                         type="text" 
                         value={quantity}
                         readOnly
-                        className="flex-1 text-center text-sm focus:outline-none bg-transparent"
+                        className="w-12 text-center text-sm focus:outline-none bg-transparent h-10"
                       />
                       <button 
                         onClick={() => setQuantity(quantity + 1)}
-                        className="w-10 h-10 flex items-center justify-center hover:bg-neutral-50 transition-colors"
+                        className="w-10 h-10 flex items-center justify-center hover:bg-neutral-50 transition-colors border-l border-neutral-300"
                       >
-                        <Plus size={16} />
+                        <Plus size={14} />
                       </button>
                     </div>
                   </div>

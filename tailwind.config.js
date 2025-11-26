@@ -64,8 +64,18 @@ module.exports = {
         error: 'rgb(var(--color-error) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['Assistant', 'sans-serif'],
-        heading: ['GTStandard-M', 'sans-serif'],
+        sans: ['var(--font-assistant)', 'Assistant', 'sans-serif'],
+      },
+      fontSize: {
+        'xs': ['12px', { lineHeight: '1.5' }],
+        'sm': ['14px', { lineHeight: '1.5' }],
+        'base': ['16px', { lineHeight: '1.6' }],
+        'lg': ['18px', { lineHeight: '1.5' }],
+        'xl': ['20px', { lineHeight: '1.4' }],
+        '2xl': ['24px', { lineHeight: '1.3' }],
+        '3xl': ['30px', { lineHeight: '1.2' }],
+        '4xl': ['36px', { lineHeight: '1.1' }],
+        '5xl': ['48px', { lineHeight: '1.1' }],
       },
       animation: {
         marquee: 'marquee 60s linear infinite',
