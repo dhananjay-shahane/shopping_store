@@ -8,6 +8,7 @@ import { FadeIn } from './_components/UI/FadeIn';
 import ProductCard from './_components/Product/ProductCard';
 import { TestimonialSlider } from './_components/UI/TestimonialSlider';
 import BouquetSection from './_components/Product/BouquetSection';
+import BestsellerSection from './_components/Product/BestsellerSection';
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -148,6 +149,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <BestsellerSection />
 
       <section className="bg-primary-50 min-h-[500px] flex flex-col md:flex-row items-stretch">
         <div className="w-full md:w-1/2 p-8 md:p-24 flex flex-col justify-center items-start">
