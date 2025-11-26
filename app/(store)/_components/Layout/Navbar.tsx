@@ -152,7 +152,7 @@ export default function Navbar() {
                 Collection <ChevronDown size={14} />
               </span>
 
-              <div className="absolute top-full left-0 w-72 bg-background border border-neutral-100 shadow-xl py-2 hidden group-hover:block z-50 animate-in fade-in zoom-in-95 duration-200">
+              <div className="absolute top-full left-0 w-72 bg-background border border-neutral-100 shadow-xl hidden group-hover:block z-50 animate-in fade-in zoom-in-95 duration-200">
                 <div className="flex flex-col items-start text-left">
                   {[
                     { name: "Bouquet", slug: "bouquet" },
