@@ -1,16 +1,15 @@
-
 import React from 'react';
 
 export default function StudioPage() {
   return (
-    <div className="bg-white min-h-screen">
-       <div className="bg-[#FCE4DC] py-16 text-center mb-12">
-          <h1 className="text-4xl md:text-5xl text-[#1a1a1a] font-normal tracking-wide uppercase">OUR STUDIO</h1>
+    <div className="bg-background min-h-screen">
+       <div className="bg-accent py-16 text-center mb-12">
+          <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">OUR STUDIO</h1>
        </div>
 
        <div className="container mx-auto px-4 py-8">
-          <div className="max-w-3xl mx-auto text-center space-y-8 leading-relaxed text-gray-600">
-             <p className="text-xl font-light text-gray-900">
+          <div className="max-w-3xl mx-auto text-center space-y-8 leading-relaxed text-neutral-600">
+             <p className="text-xl font-light text-foreground">
                "Sui Dhaga" implies Needle and Thread. It is the beginning of every creation.
              </p>
              <p>
@@ -27,17 +26,17 @@ export default function StudioPage() {
              <div className="text-center p-6">
                 <img src="https://picsum.photos/seed/artisan/400/400" className="w-full h-64 object-cover mb-6 rounded-sm" alt="Artisan" />
                 <h3 className="text-lg font-bold uppercase tracking-widest mb-2">Craftsmanship</h3>
-                <p className="text-sm text-gray-500">Every piece passes through the hands of skilled artisans who have inherited their craft through generations.</p>
+                <p className="text-sm text-neutral-500">Every piece passes through the hands of skilled artisans who have inherited their craft through generations.</p>
              </div>
              <div className="text-center p-6">
                 <img src="https://picsum.photos/seed/fabric/400/400" className="w-full h-64 object-cover mb-6 rounded-sm" alt="Fabric" />
                 <h3 className="text-lg font-bold uppercase tracking-widest mb-2">Quality</h3>
-                <p className="text-sm text-gray-500">We source only the finest organic cottons and breathable linens suitable for delicate skin.</p>
+                <p className="text-sm text-neutral-500">We source only the finest organic cottons and breathable linens suitable for delicate skin.</p>
              </div>
              <div className="text-center p-6">
                 <img src="https://picsum.photos/seed/design/400/400" className="w-full h-64 object-cover mb-6 rounded-sm" alt="Design" />
                 <h3 className="text-lg font-bold uppercase tracking-widest mb-2">Design</h3>
-                <p className="text-sm text-gray-500">Merging traditional motifs with contemporary cuts to create timeless wardrobes.</p>
+                <p className="text-sm text-neutral-500">Merging traditional motifs with contemporary cuts to create timeless wardrobes.</p>
              </div>
           </div>
        </div>

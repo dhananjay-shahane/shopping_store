@@ -9,7 +9,7 @@ export default function StoreLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-pink-100 flex flex-col">
+    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary-100 flex flex-col">
       <Navbar />
       <main className="flex-grow animate-in fade-in duration-500">
         {children}

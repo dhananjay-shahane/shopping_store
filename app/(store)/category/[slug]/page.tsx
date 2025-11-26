@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -16,9 +15,9 @@ export default function CategoryPage() {
   );
 
   return (
-    <div className="min-h-screen bg-white pb-16">
-       <div className="bg-[#FCE4DC] py-16 text-center mb-12">
-          <h1 className="text-4xl md:text-5xl text-[#1a1a1a] font-normal tracking-wide uppercase">{categoryName} COLLECTION</h1>
+    <div className="min-h-screen bg-background pb-16">
+       <div className="bg-accent py-16 text-center mb-12">
+          <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">{categoryName} COLLECTION</h1>
        </div>
        
        <div className="container mx-auto px-4">
@@ -27,7 +26,7 @@ export default function CategoryPage() {
                <ProductCard key={p.id} product={p}/>
             ))}
          </div>
-         {filteredProducts.length === 0 && <p className="text-center text-gray-500 py-12">No products found for this category.</p>}
+         {filteredProducts.length === 0 && <p className="text-center text-neutral-500 py-12">No products found for this category.</p>}
        </div>
     </div>
   );

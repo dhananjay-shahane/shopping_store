@@ -48,7 +48,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative w-full h-[600px] md:h-[800px] bg-gray-50 group flex flex-col">
+      <section className="relative w-full h-[600px] md:h-[800px] bg-neutral-50 group flex flex-col">
         <div className="relative flex-1 overflow-hidden">
           {slides.map((slide, index) => (
             <div 
@@ -63,17 +63,17 @@ export default function HomePage() {
               
               <div className="absolute bottom-24 left-6 md:bottom-32 md:left-24 z-20">
                 <FadeIn delay={300} className={index === currentSlide ? 'block' : 'hidden'}>
-                  <div className="bg-white/95 backdrop-blur-sm px-6 py-5 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50 max-w-xs animate-in slide-in-from-bottom-4 duration-700 flex items-start gap-4">
-                    <div className="bg-yellow-50 p-2.5 rounded-full relative shrink-0 mt-1">
-                      <Bell size={20} className="text-yellow-500 fill-yellow-500" />
-                      <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 border-2 border-white rounded-full"></span>
+                  <div className="bg-background/95 backdrop-blur-sm px-6 py-5 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-background/50 max-w-xs animate-in slide-in-from-bottom-4 duration-700 flex items-start gap-4">
+                    <div className="bg-secondary-50 p-2.5 rounded-full relative shrink-0 mt-1">
+                      <Bell size={20} className="text-secondary-500 fill-secondary-500" />
+                      <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-error border-2 border-background rounded-full"></span>
                     </div>
                     <div>
-                      <p className="text-pink-500 text-[10px] font-bold uppercase tracking-widest mb-1">{slide.subtitle}</p>
-                      <h3 className="text-gray-900 font-serif text-2xl leading-none mb-3">{slide.title}</h3>
+                      <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">{slide.subtitle}</p>
+                      <h3 className="text-foreground font-serif text-2xl leading-none mb-3">{slide.title}</h3>
                       <Link 
                         href="/category/bouquet" 
-                        className="text-pink-500 font-bold text-sm border-b-2 border-pink-500 pb-0.5 hover:text-pink-700 hover:border-pink-700 transition-all"
+                        className="text-primary font-bold text-sm border-b-2 border-primary pb-0.5 hover:text-primary-700 hover:border-primary-700 transition-all"
                       >
                         Shop now
                       </Link>
@@ -85,31 +85,31 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="bg-white border-t border-gray-100 h-14 flex items-center justify-center relative z-30">
+        <div className="bg-background border-t border-neutral-100 h-14 flex items-center justify-center relative z-30">
           <div className="flex items-center h-full">
             <button 
               onClick={prevSlide} 
-              className="h-full px-6 text-gray-400 hover:text-gray-900 hover:bg-gray-50 transition-all border-r border-gray-100"
+              className="h-full px-6 text-neutral-400 hover:text-foreground hover:bg-neutral-50 transition-all border-r border-neutral-100"
             >
               <ChevronLeft size={16} />
             </button>
             
-            <div className="px-8 text-xs font-medium tracking-widest text-gray-500 flex items-center h-full tabular-nums">
-              <span className="text-gray-900">{currentSlide + 1}</span>
+            <div className="px-8 text-xs font-medium tracking-widest text-neutral-500 flex items-center h-full tabular-nums">
+              <span className="text-foreground">{currentSlide + 1}</span>
               <span className="mx-1">/</span>
               <span>{slides.length}</span>
             </div>
 
             <button 
               onClick={nextSlide} 
-              className="h-full px-6 text-gray-400 hover:text-gray-900 hover:bg-gray-50 transition-all border-l border-r border-gray-100"
+              className="h-full px-6 text-neutral-400 hover:text-foreground hover:bg-neutral-50 transition-all border-l border-r border-neutral-100"
             >
               <ChevronRight size={16} />
             </button>
 
             <button 
               onClick={togglePlay} 
-              className="h-full px-6 text-gray-400 hover:text-gray-900 hover:bg-gray-50 transition-all"
+              className="h-full px-6 text-neutral-400 hover:text-foreground hover:bg-neutral-50 transition-all"
             >
               {isPlaying ? <Pause size={14} fill="currentColor" /> : <Play size={14} fill="currentColor" />}
             </button>
@@ -117,11 +117,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="text-center">
           <FadeIn>
-            <div className="bg-[#FCE4DC] py-10 text-center mb-12">
-              <h1 className="text-3xl md:text-4xl text-[#1a1a1a] font-normal tracking-wide uppercase">SHOP BY CATEGORY</h1>
+            <div className="bg-accent py-10 text-center mb-12">
+              <h1 className="text-3xl md:text-4xl text-foreground font-normal tracking-wide uppercase">SHOP BY CATEGORY</h1>
             </div>
           </FadeIn>
           
@@ -129,10 +129,10 @@ export default function HomePage() {
             {CATEGORIES.map((cat, idx) => (
               <FadeIn key={cat.id} delay={idx * 100}>
                 <Link href={`/category/${cat.name.toLowerCase()}`} className="flex flex-col items-center group cursor-pointer">
-                  <div className="w-20 h-20 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-gray-100 group-hover:border-pink-200 transition-all mb-4 md:mb-5 relative shadow-sm">
+                  <div className="w-20 h-20 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-neutral-100 group-hover:border-primary-200 transition-all mb-4 md:mb-5 relative shadow-sm">
                     <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="text-xs md:text-sm font-bold text-gray-800 uppercase tracking-widest group-hover:text-pink-500 transition-colors">{cat.name}</span>
+                  <span className="text-xs md:text-sm font-bold text-neutral-800 uppercase tracking-widest group-hover:text-primary transition-colors">{cat.name}</span>
                 </Link>
               </FadeIn>
             ))}
@@ -140,17 +140,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-pink-50 min-h-[500px] flex flex-col md:flex-row items-stretch">
+      <section className="bg-primary-50 min-h-[500px] flex flex-col md:flex-row items-stretch">
         <div className="w-full md:w-1/2 p-8 md:p-24 flex flex-col justify-center items-start">
           <FadeIn>
-            <span className="text-pink-500 font-bold uppercase tracking-widest text-xs mb-4">Matching Sets</span>
-            <h2 className="text-3xl md:text-5xl font-light mb-6 md:mb-8 text-gray-900">Brother & Sister</h2>
-            <p className="text-gray-600 mb-8 md:mb-10 leading-relaxed max-w-md text-sm md:text-base">
+            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-4">Matching Sets</span>
+            <h2 className="text-3xl md:text-5xl font-light mb-6 md:mb-8 text-foreground">Brother & Sister</h2>
+            <p className="text-neutral-600 mb-8 md:mb-10 leading-relaxed max-w-md text-sm md:text-base">
               Create picture-perfect memories with our coordinated sets designed to strengthen the bond between siblings.
             </p>
             <Link 
               href="/category/plushies"
-              className="bg-gray-900 text-white px-8 py-3 md:px-10 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-pink-500 transition-all shadow-lg"
+              className="bg-foreground text-background px-8 py-3 md:px-10 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all shadow-lg"
             >
               Shop Collection
             </Link>
@@ -166,8 +166,8 @@ export default function HomePage() {
       </section>
 
       <section className="py-20">
-        <div className="bg-[#FCE4DC] py-10 text-center mb-12">
-          <h1 className="text-4xl md:text-5xl text-[#1a1a1a] font-normal tracking-wide uppercase">Make your own bouquet</h1>
+        <div className="bg-accent py-10 text-center mb-12">
+          <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">Make your own bouquet</h1>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12 container mx-auto px-4">
           {PRODUCTS.slice(0, 4).map((product, idx) => (
@@ -175,40 +175,40 @@ export default function HomePage() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="/shop" className="text-gray-900 border-b border-gray-900 pb-1 uppercase tracking-widest text-xs font-bold hover:text-pink-500 hover:border-pink-500 transition-all">View All Products</Link>
+          <Link href="/shop" className="text-foreground border-b border-foreground pb-1 uppercase tracking-widest text-xs font-bold hover:text-primary hover:border-primary transition-all">View All Products</Link>
         </div>
       </section>
 
       <section className="py-20 overflow-hidden">
-        <div className="bg-[#FCE4DC] py-10 text-center mb-12">
-          <h1 className="text-4xl md:text-5xl text-[#1a1a1a] font-normal tracking-wide uppercase">HAPPY CUSTOMERS</h1>
+        <div className="bg-accent py-10 text-center mb-12">
+          <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">HAPPY CUSTOMERS</h1>
         </div>
         
         <TestimonialSlider />
       </section>
 
-      <section className="py-20 border-t border-gray-100">
+      <section className="py-20 border-t border-neutral-100">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <FadeIn delay={0} className="flex flex-col items-center">
-            <div className="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center text-pink-500 mb-6">
+            <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center text-primary mb-6">
               <Truck size={28}/>
             </div>
-            <h3 className="font-bold text-gray-900 mb-2">Fast Shipping</h3>
-            <p className="text-gray-500 text-sm max-w-xs">Reliable delivery to your doorstep within 5-7 business days.</p>
+            <h3 className="font-bold text-foreground mb-2">Fast Shipping</h3>
+            <p className="text-neutral-500 text-sm max-w-xs">Reliable delivery to your doorstep within 5-7 business days.</p>
           </FadeIn>
           <FadeIn delay={100} className="flex flex-col items-center">
-            <div className="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center text-pink-500 mb-6">
+            <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center text-primary mb-6">
               <ShieldCheck size={28}/>
             </div>
-            <h3 className="font-bold text-gray-900 mb-2">Secure Payment</h3>
-            <p className="text-gray-500 text-sm max-w-xs">Your transactions are safe with our encrypted payment systems.</p>
+            <h3 className="font-bold text-foreground mb-2">Secure Payment</h3>
+            <p className="text-neutral-500 text-sm max-w-xs">Your transactions are safe with our encrypted payment systems.</p>
           </FadeIn>
           <FadeIn delay={200} className="flex flex-col items-center">
-            <div className="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center text-pink-500 mb-6">
+            <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center text-primary mb-6">
               <Headphones size={28}/>
             </div>
-            <h3 className="font-bold text-gray-900 mb-2">24/7 Support</h3>
-            <p className="text-gray-500 text-sm max-w-xs">Our team is here to assist you with any queries anytime.</p>
+            <h3 className="font-bold text-foreground mb-2">24/7 Support</h3>
+            <p className="text-neutral-500 text-sm max-w-xs">Our team is here to assist you with any queries anytime.</p>
           </FadeIn>
         </div>
       </section>

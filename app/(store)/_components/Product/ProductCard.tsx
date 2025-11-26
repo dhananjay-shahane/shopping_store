@@ -13,31 +13,31 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product, delay = 0 }) => {
   return (
     <FadeIn delay={delay} className="group flex flex-col w-full">
-      <Link href={`/product/${product.id}`} className="block relative w-full aspect-square overflow-hidden mb-3 bg-gray-50">
+      <Link href={`/product/${product.id}`} className="block relative w-full aspect-square overflow-hidden mb-3 bg-neutral-50">
         <img 
           src={product.image} 
           alt={product.name} 
           className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" 
         />
         {product.isNew && (
-          <div className="absolute top-2 left-2 bg-white px-2 py-1 text-[10px] font-medium uppercase tracking-widest shadow-sm">
+          <div className="absolute top-2 left-2 bg-background px-2 py-1 text-[10px] font-medium uppercase tracking-widest shadow-sm">
             New
           </div>
         )}
       </Link>
       
       <div className="flex flex-col items-start w-full">
-        <Link href={`/product/${product.id}`} className="text-[13px] text-gray-900 font-normal hover:text-gray-600 transition-colors mb-1 truncate w-full">
+        <Link href={`/product/${product.id}`} className="text-[13px] text-foreground font-normal hover:text-neutral-600 transition-colors mb-1 truncate w-full">
           {product.name}
         </Link>
         
-        <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-1">SUIDHAAGE</p>
+        <p className="text-[10px] text-neutral-400 uppercase tracking-widest mb-1">SUIDHAAGE</p>
         
-        <p className="text-[13px] text-gray-900 font-normal mb-4">Rs. {product.price.toLocaleString()}.00</p>
+        <p className="text-[13px] text-foreground font-normal mb-4">Rs. {product.price.toLocaleString()}.00</p>
         
         <Link 
           href={`/product/${product.id}`}
-          className="w-full border border-gray-900 bg-white py-2.5 text-xs font-normal text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 text-center block"
+          className="w-full border border-foreground bg-background py-2.5 text-xs font-normal text-foreground hover:bg-foreground hover:text-background transition-all duration-200 text-center block"
         >
           Add to cart
         </Link>
