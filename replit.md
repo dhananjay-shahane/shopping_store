@@ -48,6 +48,21 @@ styles/
 
 ## Recent Changes (November 26, 2025)
 
+### UI Updates
+- **Header Navigation**: Updated active page styling with underline indicator for Shop All and Contact Us
+- **Shop Page Pagination**: Added pagination with ellipsis for large page counts (1, 2, 3, ..., 11, >)
+- **Layout Padding**: Added responsive padding to main layout (px-0 md:px-4 lg:px-6)
+- **Checkout Page Redesign**: Complete redesign matching professional e-commerce layout:
+  - Contact section with email input and newsletter checkbox
+  - Delivery section with full address form (country, name, address, city, state, PIN, phone)
+  - Shipping method section
+  - Payment section with Razorpay styling (UPI, Cards, Int'l Cards, Wallets)
+  - Billing address radio options
+  - Order summary sidebar with product images, discount code, and totals
+  - "Pay now" button and footer policy links
+- **About Us Page**: Redesigned with "Meet The Face Behind The Flowers", "About Us", and "Our Artisans" sections
+- **OUR STUDIO Section**: Updated font and styling for homepage section
+
 ### Project Reorganization
 - Consolidated all code into proper Next.js App Router structure
 - Moved shared utilities (types, constants, context) to `app/_shared/`
@@ -67,6 +82,7 @@ styles/
 - Product cards with hover effects and "New" badges
 - Testimonial slider with Instagram-style chat cards
 - Contact page with form and FAQ accordion
+- Professional checkout flow with Razorpay payment integration
 
 ## Development
 
