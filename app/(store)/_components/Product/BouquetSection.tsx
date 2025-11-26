@@ -12,7 +12,7 @@ const BouquetSection = () => {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
 
-  const bouquetProducts = PRODUCTS.filter(p => p.category === 'Bouquet').slice(0, 4);
+  const bouquetProducts = PRODUCTS.filter(p => p.category === 'Bouquet').slice(0, 5);
 
   const colors = [
     { name: 'Yellow tulip', color: '#F5C542' },
@@ -48,30 +48,39 @@ const BouquetSection = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
+        {/* Pink Header Section */}
+        <div className="bg-[#E8C5C5] py-8 px-6 mb-8 rounded-sm">
+          <h2 className="text-2xl md:text-3xl font-medium text-center text-neutral-800">
+            Make your own bouquet
+          </h2>
+        </div>
+
+        {/* Instructions */}
         <div className="mb-8 space-y-2 text-neutral-600 text-sm max-w-2xl">
           <p>1. Add your favourite flowers to the cart</p>
           <p>2. Add a choosing of your favourite sheet</p>
           <p>3. That's it! We'll prepare an exceptional bouquet for you!</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        {/* Products Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
           {bouquetProducts.map((product) => (
             <div key={product.id} className="group">
-              <div className="aspect-square bg-neutral-50 mb-3 overflow-hidden relative rounded-sm">
+              <div className="aspect-square bg-neutral-50 mb-3 overflow-hidden relative rounded-sm border border-neutral-200">
                 <img 
                   src={product.image} 
                   alt={product.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {product.isNew && (
-                  <div className="absolute top-3 left-3 bg-foreground text-background px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+                  <div className="absolute top-2 left-2 bg-foreground text-background px-2 py-1 text-[10px] font-semibold uppercase tracking-wider">
                     Sale
                   </div>
                 )}
               </div>
               <div>
-                <p className="text-xs text-neutral-400 uppercase tracking-widest mb-1.5">PHOOLDHAGE</p>
-                <h3 className="text-sm font-medium mb-2 text-foreground">{product.name}</h3>
+                <h3 className="text-sm font-medium mb-1 text-foreground">{product.name}</h3>
+                <p className="text-xs text-neutral-400 uppercase tracking-widest mb-2">PHOOLDHAGE</p>
                 <div className="flex items-center gap-2 mb-3">
                   {product.isNew && (
                     <span className="text-xs text-neutral-400 line-through">Rs. {(product.price + 100).toLocaleString()}.00</span>
@@ -80,15 +89,16 @@ const BouquetSection = () => {
                 </div>
                 <button
                   onClick={() => setSelectedProduct(product)}
-                  className="w-full border border-foreground py-2.5 text-xs font-medium uppercase tracking-wider hover:bg-foreground hover:text-background transition-all duration-300"
+                  className="w-full border border-foreground py-2 text-xs font-medium uppercase tracking-wider hover:bg-foreground hover:text-background transition-all duration-300 rounded-sm"
                 >
-                  Choose options
+                  Add to cart
                 </button>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Pagination */}
         <div className="flex items-center justify-center gap-4 mb-6">
           <span className="text-sm text-neutral-500 tabular-nums">1/3</span>
           <button className="p-2 hover:text-primary transition-colors" aria-label="Previous">
@@ -103,13 +113,15 @@ const BouquetSection = () => {
           </button>
         </div>
 
+        {/* View All Button */}
         <div className="text-center">
-          <button className="bg-foreground text-background px-10 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-sm">
+          <button className="bg-foreground text-background px-10 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-sm rounded-sm">
             View all
           </button>
         </div>
       </div>
 
+      {/* Modal */}
       {selectedProduct && (
         <>
           <div 
@@ -206,32 +218,17 @@ const BouquetSection = () => {
                   <div className="flex flex-col gap-3 mt-auto">
                     <button
                       onClick={handleAddToCart}
-                      className="w-full border-2 border-foreground py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-foreground hover:text-background transition-all duration-300"
+                      className="w-full border-2 border-foreground py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-foreground hover:text-background transition-all duration-300 rounded-sm"
                     >
                       Add to cart
                     </button>
                     <button
                       onClick={handleBuyNow}
-                      className="w-full bg-foreground text-background py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-colors shadow-sm"
+                      className="w-full bg-foreground text-background py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-colors shadow-sm rounded-sm"
                     >
-                      Buy it now
-                    </button>
-                    <button className="text-sm text-neutral-600 hover:text-primary mt-2 flex items-center justify-center gap-2 transition-colors">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
-                        <polyline points="16 6 12 2 8 6"/>
-                        <line x1="12" y1="2" x2="12" y2="15"/>
-                      </svg>
-                      Share
+                      Choose options
                     </button>
                   </div>
-
-                  <button className="mt-6 text-sm text-neutral-600 hover:text-primary flex items-center gap-2 justify-center transition-colors">
-                    View full details
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </button>
                 </div>
               </div>
             </div>
