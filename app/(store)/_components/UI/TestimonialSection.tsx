@@ -1,14 +1,11 @@
 import React from "react";
 import { TestimonialSlider } from "./TestimonialSlider";
+import { SectionHeading } from "./SectionHeading";
 
 export default function TestimonialSection() {
   return (
     <section className="py-4 overflow-hidden">
-      <div className="bg-accent py-8 text-center mb-8">
-        <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide uppercase">
-          HAPPY CUSTOMERS
-        </h1>
-      </div>
+      <SectionHeading title="HAPPY CUSTOMERS" />
 
       <TestimonialSlider />
     </section>

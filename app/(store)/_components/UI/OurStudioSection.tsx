@@ -2,15 +2,12 @@
 
 import React from "react";
 import { FadeIn } from "./FadeIn";
+import { SectionHeading } from "./SectionHeading";
 
 const OurStudioSection = () => {
   return (
     <section className="py-6 md:py-4">
-      <div className="bg-accent py-8 text-center mb-8">
-        <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide uppercase">
-          OUR STUDIO
-        </h1>
-      </div>
+      <SectionHeading title="OUR STUDIO" />
 
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div

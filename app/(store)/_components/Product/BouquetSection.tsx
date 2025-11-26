@@ -6,6 +6,7 @@ import { X, Minus, Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import { useCart } from "@/app/_shared/context/CartContext";
 import { BOUQUET_FLOWERS } from "@/app/_shared/constants";
 import { Product } from "@/app/_shared/types";
+import { SectionHeading } from "../UI/SectionHeading";
 
 const BouquetSection = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -71,11 +72,7 @@ const BouquetSection = () => {
   return (
     <>
       <section className="py-4">
-        <div className="bg-accent py-8 text-center mb-8">
-          <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide">
-            Make your own bouquet
-          </h1>
-        </div>
+        <SectionHeading title="Make your own bouquet" />
 
         <div className="container mx-auto px-4 md:px-8">
           <div className="mb-8 space-y-1 text-neutral-600 text-md">

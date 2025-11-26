@@ -2,21 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { CATEGORIES } from "@/app/_shared/constants";
 import { FadeIn } from "./FadeIn";
+import { SectionHeading } from "./SectionHeading";
 
 export default function CategorySection() {
   return (
     <section className="py-4 bg-background">
       <div>
-        <FadeIn>
-          <div className="bg-accent py-8 text-center mb-8">
-            <h1
-              className="text-2xl md:text-3xl text-foreground tracking-wide uppercase"
-              style={{ fontFamily: "Assistant", fontWeight: 600 }}
-            >
-              SHOP BY CATEGORY
-            </h1>
-          </div>
-        </FadeIn>
+        <SectionHeading title="SHOP BY CATEGORY" />
 
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">

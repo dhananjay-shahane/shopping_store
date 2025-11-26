@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Minus, Plus, Share2 } from "lucide-react";
 import { useCart } from "@/app/_shared/context/CartContext";
 import { FadeIn } from "../UI/FadeIn";
+import { SectionHeading } from "../UI/SectionHeading";
 
 const BestsellerSection = () => {
   const [quantity, setQuantity] = useState(1);
@@ -51,11 +52,7 @@ const BestsellerSection = () => {
 
   return (
     <section className="py-12">
-      <div className="bg-accent py-8 text-center mb-10">
-        <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide uppercase">
-          BESTSELLER
-        </h1>
-      </div>
+      <SectionHeading title="BESTSELLER" className="mb-10" />
 
       <div className="container mx-auto px-4 md:px-8">
         <FadeIn>
