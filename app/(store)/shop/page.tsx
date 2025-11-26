@@ -157,29 +157,39 @@ export default function ShopPage() {
         )}
 
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-2 text-sm font-medium text-neutral-600">
-            <button 
-              onClick={() => handlePageChange(currentPage - 1)} 
-              disabled={currentPage === 1}
-              className="p-2 hover:text-primary disabled:opacity-30 transition-colors"
-            >
-              <ChevronLeft size={18} />
-            </button>
+          <div className="flex justify-center items-center gap-6 text-sm text-neutral-600 py-8">
+            {(() => {
+              const pages: (number | string)[] = [];
+              if (totalPages <= 7) {
+                for (let i = 1; i <= totalPages; i++) pages.push(i);
+              } else {
+                pages.push(1);
+                if (currentPage > 3) pages.push('...');
+                for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
+                  pages.push(i);
+                }
+                if (currentPage < totalPages - 2) pages.push('...');
+                pages.push(totalPages);
+              }
+              return pages.map((page, idx) => (
+                typeof page === 'number' ? (
+                  <button
+                    key={idx}
+                    onClick={() => handlePageChange(page)}
+                    className={`transition-all ${currentPage === page ? 'text-foreground border-b border-foreground pb-1' : 'hover:text-foreground'}`}
+                  >
+                    {page}
+                  </button>
+                ) : (
+                  <span key={idx} className="text-neutral-400">{page}</span>
+                )
+              ));
+            })()}
             
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <button
-                key={page}
-                onClick={() => handlePageChange(page)}
-                className={`w-8 h-8 flex items-center justify-center rounded-full transition-all ${currentPage === page ? 'text-foreground border-b-2 border-foreground' : 'hover:bg-neutral-50'}`}
-              >
-                {page}
-              </button>
-            ))}
-
             <button 
               onClick={() => handlePageChange(currentPage + 1)} 
               disabled={currentPage === totalPages}
-              className="p-2 hover:text-primary disabled:opacity-30 transition-colors"
+              className="hover:text-foreground disabled:opacity-30 transition-colors"
             >
               <ChevronRight size={18} />
             </button>

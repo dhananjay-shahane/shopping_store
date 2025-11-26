@@ -90,11 +90,11 @@ export default function Navbar() {
             <Menu size={28} strokeWidth={1.5} />
           </button>
 
-          <nav className="hidden md:flex flex-1 gap-6 lg:gap-8 text-xs font-medium text-neutral-600 uppercase tracking-widest items-center bg-background h-full">
-            <Link href="/" className={`hover:text-primary transition-colors ${pathname === '/' ? 'text-primary' : ''}`}>Home</Link>
-            <Link href="/shop" className={`hover:text-primary transition-colors ${pathname === '/shop' ? 'text-primary' : ''}`}>Shop All</Link>
-            <Link href="/contact" className={`hover:text-primary transition-colors ${pathname === '/contact' ? 'text-primary' : ''}`}>Contact Us</Link>
-            <Link href="/studio" className={`hover:text-primary transition-colors ${pathname === '/studio' ? 'text-primary' : ''}`}>About Us</Link>
+          <nav className="hidden md:flex flex-1 gap-6 lg:gap-8 text-sm font-normal text-neutral-700 tracking-wide items-center bg-background h-full">
+            <Link href="/" className={`hover:text-foreground transition-colors py-1 ${pathname === '/' ? 'text-foreground' : ''}`}>Home</Link>
+            <Link href="/shop" className={`hover:text-foreground transition-colors py-1 ${pathname === '/shop' || pathname.startsWith('/shop') ? 'text-foreground border-b border-foreground' : ''}`}>Shop All</Link>
+            <Link href="/contact" className={`hover:text-foreground transition-colors py-1 ${pathname === '/contact' ? 'text-foreground border-b border-foreground' : ''}`}>Contact Us</Link>
+            <Link href="/studio" className={`hover:text-foreground transition-colors py-1 ${pathname === '/studio' ? 'text-foreground' : ''}`}>About Us</Link>
             
             <div className="relative group h-full flex items-center">
               <span className="flex items-center gap-1 hover:text-primary transition-colors h-full cursor-pointer">
