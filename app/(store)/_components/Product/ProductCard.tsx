@@ -17,7 +17,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, delay = 0 }) => {
         <img 
           src={product.image} 
           alt={product.name} 
-          className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" 
+          className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+          loading="lazy"
         />
         {product.isNew && (
           <div className="absolute top-2 left-2 bg-background px-2 py-1 text-[10px] font-medium uppercase tracking-widest shadow-sm">

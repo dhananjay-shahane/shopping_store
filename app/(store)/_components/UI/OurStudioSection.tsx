@@ -15,12 +15,13 @@ const OurStudioSection = () => {
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-start">
           <FadeIn>
-            <div className="max-w-md mx-auto md:mx-0">
+            <div className="max-w-md mx-auto md:mx-0" style={{ display: 'flex', justifyContent: 'end' }}>
               <div className="aspect-[4/5] overflow-hidden shadow-sm">
                 <img
                   src="/images/products/crochet_craft_studio_d2d0e937.jpg"
                   alt="Our Crochet Studio"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

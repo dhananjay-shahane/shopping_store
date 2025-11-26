@@ -57,6 +57,7 @@ export default function HeroSection() {
               src={slide.image}
               alt={slide.title}
               className={`w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-linear ${index === currentSlide && isPlaying ? "scale-110" : "scale-100"}`}
+              loading={index === 0 ? "eager" : "lazy"}
             />
 
             <div className="absolute bottom-24 left-6 md:bottom-32 md:left-24 z-20">

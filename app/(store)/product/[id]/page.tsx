@@ -64,11 +64,11 @@ export default function ProductDetailPage() {
           <div className="w-full lg:w-3/5">
              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                <div className="md:col-span-2 aspect-[4/5] bg-neutral-100 overflow-hidden rounded-lg group">
-                 <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                 <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="eager"/>
                </div>
                {[1, 2, 3, 4].map((i) => (
                  <div key={i} className="aspect-square bg-neutral-100 overflow-hidden rounded-lg group">
-                    <img src={product.image} alt={`${product.name} - View ${i}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
+                    <img src={product.image} alt={`${product.name} - View ${i}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
                  </div>
                ))}
              </div>
