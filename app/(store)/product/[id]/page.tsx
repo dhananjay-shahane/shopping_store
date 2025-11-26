@@ -126,12 +126,12 @@ export default function ProductDetailPage() {
 
                 <div>
                    <label className="block text-xs font-bold uppercase tracking-widest text-neutral-700 mb-2">Quantity</label>
-                   <div className="flex w-32 items-center border border-neutral-300 rounded-sm">
-                      <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-10 h-10 flex items-center justify-center text-neutral-500 hover:bg-neutral-50">
+                   <div className="inline-flex items-center border border-neutral-300 bg-white">
+                      <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-10 h-10 flex items-center justify-center text-neutral-500 hover:bg-neutral-50 border-r border-neutral-300">
                         <Minus size={14} />
                       </button>
-                      <input type="text" readOnly value={quantity} className="flex-1 text-center text-sm font-medium w-full focus:outline-none" />
-                      <button onClick={() => setQuantity(quantity + 1)} className="w-10 h-10 flex items-center justify-center text-neutral-500 hover:bg-neutral-50">
+                      <input type="text" readOnly value={quantity} className="w-12 text-center text-sm font-medium focus:outline-none h-10 bg-transparent" />
+                      <button onClick={() => setQuantity(quantity + 1)} className="w-10 h-10 flex items-center justify-center text-neutral-500 hover:bg-neutral-50 border-l border-neutral-300">
                         <Plus size={14} />
                       </button>
                    </div>

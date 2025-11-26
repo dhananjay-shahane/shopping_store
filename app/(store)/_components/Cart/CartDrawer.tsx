@@ -46,10 +46,10 @@ export const CartDrawer = () => {
                       <p className="text-xs text-neutral-500">{item.size} / {item.type}</p>
                     </div>
                     <div className="flex justify-between items-center">
-                      <div className="flex border border-neutral-200 rounded-sm">
-                        <button onClick={() => updateCartQuantity(item.id, -1)} className="px-2 py-1"><Minus size={12}/></button>
-                        <span className="px-2 text-xs py-1">{item.quantity}</span>
-                        <button onClick={() => updateCartQuantity(item.id, 1)} className="px-2 py-1"><Plus size={12}/></button>
+                      <div className="inline-flex items-center border border-neutral-200 bg-white">
+                        <button onClick={() => updateCartQuantity(item.id, -1)} className="w-7 h-7 flex items-center justify-center hover:bg-neutral-50 border-r border-neutral-200"><Minus size={12}/></button>
+                        <span className="w-8 text-center text-xs">{item.quantity}</span>
+                        <button onClick={() => updateCartQuantity(item.id, 1)} className="w-7 h-7 flex items-center justify-center hover:bg-neutral-50 border-l border-neutral-200"><Plus size={12}/></button>
                       </div>
                       <span className="text-sm font-medium">Rs. {(item.product.price * item.quantity).toLocaleString()}</span>
                     </div>

@@ -48,10 +48,10 @@ export default function CartPage() {
                     </div>
                     
                     <div className="flex justify-between items-end">
-                      <div className="flex items-center border border-neutral-200 rounded-sm">
-                        <button onClick={() => updateCartQuantity(item.id, -1)} className="p-2 hover:bg-neutral-50"><Minus size={14}/></button>
-                        <span className="px-4 py-1 text-sm font-medium">{item.quantity}</span>
-                        <button onClick={() => updateCartQuantity(item.id, 1)} className="p-2 hover:bg-neutral-50"><Plus size={14}/></button>
+                      <div className="inline-flex items-center border border-neutral-200 bg-white">
+                        <button onClick={() => updateCartQuantity(item.id, -1)} className="w-9 h-9 flex items-center justify-center hover:bg-neutral-50 border-r border-neutral-200"><Minus size={14}/></button>
+                        <span className="w-10 text-center text-sm font-medium">{item.quantity}</span>
+                        <button onClick={() => updateCartQuantity(item.id, 1)} className="w-9 h-9 flex items-center justify-center hover:bg-neutral-50 border-l border-neutral-200"><Plus size={14}/></button>
                       </div>
                       <p className="font-bold text-foreground">Rs. {(item.product.price * item.quantity).toLocaleString()}</p>
                     </div>
