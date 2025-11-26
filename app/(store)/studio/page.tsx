@@ -22,17 +22,26 @@ export default function StudioPage() {
                      />
                   </div>
                </div>
-               
+
                <div className="space-y-4">
                   <h3 className="text-lg md:text-xl font-semibold text-foreground">
                      Mahek Satyen Choksi
                   </h3>
                   <div className="text-sm md:text-base text-neutral-600 leading-relaxed space-y-3">
                      <p>
-                        Hi I am Mahek, the founder of Phooldhaga. In an era where modern technology often overshadows traditional crafts, I'm a young entrepreneur that is revitalizing the timeless art of crochet while carrying forward a cherished family legacy.
+                        Hi I am Mahek, the founder. In an era where modern
+                        technology often overshadows traditional crafts, I'm a
+                        young entrepreneur revitalizing the timeless art of
+                        crochet while carrying forward a cherished family
+                        legacy.
                      </p>
                      <p>
-                        I'm a dynamic 27-year-old who represents the fourth generation of a family deeply rooted in the crochet tradition. My journey embodies a unique blend of heritage and innovation, as I've merged our passion and skill of an age-old technique with contemporary designs to carve out my niche in the creative world.
+                        I'm a dynamic 27-year-old who represents the fourth
+                        generation of a family deeply rooted in the crochet
+                        tradition. My journey embodies a unique blend of
+                        heritage and innovation, as I've merged our passion and
+                        skill of an age-old technique with contemporary designs
+                        to carve out my niche in the creative world.
                      </p>
                   </div>
                </div>
@@ -49,16 +58,30 @@ export default function StudioPage() {
          <div className="container mx-auto px-6 md:px-12 py-12 md:py-16">
             <div className="max-w-4xl mx-auto text-center space-y-6 leading-relaxed text-neutral-600 text-sm md:text-base">
                <p>
-                  Welcome to Phooldhaga, where passion meets creativity. We are a passionate business dedicated to preserving and showcasing India's rich heritage of crochet artistry. Based in Surat we work with local women artisans whose expertise and creativity bring to life our exquisite handmade pieces.
+                  Welcome, where passion meets creativity. We are a passionate
+                  business dedicated to preserving and showcasing India's rich
+                  heritage of crochet artistry. Based in Surat we work with
+                  local women artisans whose expertise and creativity bring to
+                  life our exquisite handmade pieces.
                </p>
                <p>
-                  Our mission is two-fold: to sustain the timeless craft of crochet and to empower the talented women who practice it. By providing fair wages and a supportive work environment, we ensure that our artisans can thrive while keeping their craft alive for future generations.
+                  Our mission is two-fold: to sustain the timeless craft of
+                  crochet and to empower the talented women who practice it. By
+                  providing fair wages and a supportive work environment, we
+                  ensure that our artisans can thrive while keeping their craft
+                  alive for future generations.
                </p>
                <p>
-                  Every item in our collection tells a story of dedication and skill, blending traditional techniques with contemporary designs. From intricate wearables to vibrant home décor, our products are a testament to the enduring beauty of Indian handicrafts.
+                  Every item in our collection tells a story of dedication and
+                  skill, blending traditional techniques with contemporary
+                  designs. From intricate wearables to vibrant home décor, our
+                  products are a testament to the enduring beauty of Indian
+                  handicrafts.
                </p>
                <p>
-                  Join us on this journey to support sustainable fashion and celebrate artisanal excellence. At Phooldhaga we are committed to making a difference, one stitch at a time.
+                  Join us on this journey to support sustainable fashion and
+                  celebrate artisanal excellence. We are committed to making a
+                  difference, one stitch at a time.
                </p>
             </div>
          </div>
@@ -76,21 +99,27 @@ export default function StudioPage() {
                         />
                      </div>
                   </div>
-                  
+
                   <div className="space-y-5 text-center md:text-left">
                      <h3 className="text-2xl md:text-3xl font-medium text-foreground tracking-wide uppercase">
                         OUR ARTISANS
                      </h3>
                      <div className="text-sm md:text-base text-neutral-600 leading-relaxed space-y-3">
                         <p>
-                           At the heart of our business are the talented women artisans who bring our crochet flowers to life. Each piece is handcrafted with love and skill, reflecting their rich cultural heritage and dedication to sustainable craftsmanship.
+                           At the heart of our business are the talented women
+                           artisans who bring our crochet flowers to life. Each
+                           piece is handcrafted with love and skill, reflecting
+                           their rich cultural heritage and dedication to
+                           sustainable craftsmanship.
                         </p>
                         <p>
-                           By supporting our artisans, you're not only acquiring unique, beautiful creations but also empowering local communities and fostering a brighter future.
+                           By supporting our artisans, you're not only acquiring
+                           unique, beautiful creations but also empowering local
+                           communities and fostering a brighter future.
                         </p>
                      </div>
                      <div className="pt-4">
-                        <Link 
+                        <Link
                            href="/shop"
                            className="inline-block border border-foreground text-foreground px-6 py-3 text-sm tracking-wide hover:bg-foreground hover:text-background transition-colors uppercase"
                         >
