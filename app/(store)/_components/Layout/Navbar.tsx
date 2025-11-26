@@ -101,11 +101,21 @@ export default function Navbar() {
                 Collection <ChevronDown size={14} />
               </span>
               
-              <div className="absolute top-full left-0 w-64 bg-background border border-neutral-100 shadow-xl py-4 hidden group-hover:block z-50 animate-in fade-in zoom-in-95 duration-200 rounded-b-lg">
+              <div className="absolute top-full left-0 w-72 bg-background border border-neutral-100 shadow-xl py-2 hidden group-hover:block z-50 animate-in fade-in zoom-in-95 duration-200">
                 <div className="flex flex-col items-start text-left">
-                  {['Bouquet', 'Phool', 'Bags', 'Pots', 'Plushies', 'blankets', 'accessories'].map(cat => (
-                    <Link key={cat} href={`/category/${cat.toLowerCase()}`} className="w-full text-left px-6 py-2 text-neutral-600 hover:bg-primary-50 hover:text-primary transition-colors">
-                      {cat}
+                  {[
+                    { name: 'Bouquet', slug: 'bouquet' },
+                    { name: 'Phool', slug: 'phool' },
+                    { name: 'Bags', slug: 'bags' },
+                    { name: 'Pots', slug: 'pots' },
+                    { name: 'Plushies', slug: 'plushies' },
+                    { name: 'Car Hangings and Kids Accesories', slug: 'car-hangings' },
+                    { name: 'Flower Arrangements', slug: 'flower-arrangements' },
+                    { name: 'Phool ki Tokri', slug: 'phool-ki-tokri' },
+                    { name: 'Hair Accessories', slug: 'hair-accessories' },
+                  ].map(cat => (
+                    <Link key={cat.slug} href={`/category/${cat.slug}`} className="w-full text-left px-6 py-3 text-base font-normal normal-case tracking-normal text-neutral-800 hover:bg-neutral-50 transition-colors">
+                      {cat.name}
                     </Link>
                   ))}
                 </div>
@@ -245,9 +255,19 @@ export default function Navbar() {
               </div>
 
               <div className="flex-1 overflow-y-auto py-2">
-                {['Bouquet', 'Phool', 'Bags', 'Pots', 'Plushies', 'blankets', 'accessories'].map(cat => (
-                  <button key={cat} onClick={() => handleNavigate(`/category/${cat.toLowerCase()}`)} className="w-full text-left px-6 py-4 text-neutral-700 hover:bg-neutral-50 text-base font-normal">
-                    {cat}
+                {[
+                  { name: 'Bouquet', slug: 'bouquet' },
+                  { name: 'Phool', slug: 'phool' },
+                  { name: 'Bags', slug: 'bags' },
+                  { name: 'Pots', slug: 'pots' },
+                  { name: 'Plushies', slug: 'plushies' },
+                  { name: 'Car Hangings and Kids Accesories', slug: 'car-hangings' },
+                  { name: 'Flower Arrangements', slug: 'flower-arrangements' },
+                  { name: 'Phool ki Tokri', slug: 'phool-ki-tokri' },
+                  { name: 'Hair Accessories', slug: 'hair-accessories' },
+                ].map(cat => (
+                  <button key={cat.slug} onClick={() => handleNavigate(`/category/${cat.slug}`)} className="w-full text-left px-6 py-4 text-neutral-700 hover:bg-neutral-50 text-base font-normal">
+                    {cat.name}
                   </button>
                 ))}
               </div>

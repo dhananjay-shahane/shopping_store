@@ -67,7 +67,7 @@ const BestsellerSection = () => {
               </div>
 
               <div className="flex flex-col">
-                <p className="text-xs text-neutral-400 uppercase tracking-widest mb-2">PHOOLDHAGE</p>
+                <p className="text-xs text-neutral-400 uppercase tracking-widest mb-2">SUIDHAGE</p>
                 <h2 className="text-2xl md:text-3xl font-light mb-3">{bestseller.name}</h2>
                 
                 <p className="text-lg mb-1">Rs. {bestseller.price.toLocaleString()}.00</p>

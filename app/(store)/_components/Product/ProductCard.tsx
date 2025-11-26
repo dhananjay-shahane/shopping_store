@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, delay = 0 }) => {
           {product.name}
         </Link>
         
-        <p className="text-[10px] text-neutral-400 uppercase tracking-widest mb-1">SUIDHAAGE</p>
+        <p className="text-[10px] text-neutral-400 uppercase tracking-widest mb-1">SUIDHAGE</p>
         
         <p className="text-[13px] text-foreground font-normal mb-4">Rs. {product.price.toLocaleString()}.00</p>
         

@@ -103,7 +103,7 @@ const BouquetSection = () => {
                 </div>
                 <div>
                   <h3 className="text-sm font-medium mb-1 truncate">{product.name}</h3>
-                  <p className="text-xs text-neutral-400 uppercase tracking-wide mb-1">PHOOLDHAGE</p>
+                  <p className="text-xs text-neutral-400 uppercase tracking-wide mb-1">SUIDHAGE</p>
                   <div className="flex items-center gap-2 mb-3">
                     {product.originalPrice && (
                       <span className="text-xs text-neutral-400 line-through">Rs. {product.originalPrice.toLocaleString()}.00</span>
@@ -185,7 +185,7 @@ const BouquetSection = () => {
                 </div>
 
                 <div className="p-6 md:p-8 flex flex-col">
-                  <p className="text-xs text-neutral-400 uppercase tracking-widest mb-2">PHOOLDHAGE</p>
+                  <p className="text-xs text-neutral-400 uppercase tracking-widest mb-2">SUIDHAGE</p>
                   <h2 className="text-2xl md:text-3xl font-light mb-3">{selectedProduct.name}</h2>
                   
                   <p className="text-lg mb-1">Rs. {selectedProduct.price.toLocaleString()}.00</p>

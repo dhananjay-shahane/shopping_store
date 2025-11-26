@@ -157,9 +157,9 @@ export default function HomePage() {
 
       <BestsellerSection />
 
-      <section className="py-20 overflow-hidden">
-        <div className="bg-accent py-10 text-center mb-12">
-          <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">HAPPY CUSTOMERS</h1>
+      <section className="py-12 overflow-hidden">
+        <div className="bg-accent py-8 text-center mb-10">
+          <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide uppercase">HAPPY CUSTOMERS</h1>
         </div>
 
         <TestimonialSlider />

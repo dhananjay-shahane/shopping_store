@@ -71,7 +71,7 @@ export default function ProductDetailPage() {
           </div>
 
           <div className="w-full lg:w-2/5 sticky top-24 self-start">
-             <h4 className="text-neutral-400 text-xs font-bold uppercase tracking-widest mb-2">PHOOLDHAAGE</h4>
+             <h4 className="text-neutral-400 text-xs font-bold uppercase tracking-widest mb-2">SUIDHAGE</h4>
              <h1 className="text-3xl md:text-4xl text-foreground font-light mb-4">{product.name}</h1>
              <p className="text-xl text-neutral-800 font-medium mb-6">Rs. {product.price.toLocaleString()}.00</p>
              
