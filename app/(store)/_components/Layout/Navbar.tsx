@@ -150,7 +150,7 @@ export default function Navbar() {
             </Link>
 
             <div className="relative group h-full flex items-center">
-              <span className={`flex items-center gap-1 hover:text-foreground transition-colors h-full cursor-pointer py-1 ${isCollectionActive ? 'text-foreground border-b border-foreground' : ''}`}>
+              <span className={`flex items-center gap-1 hover:text-foreground transition-colors cursor-pointer ${isCollectionActive ? 'text-foreground border-b-2 border-foreground pb-1' : 'pb-1'}`}>
                 Collection <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-200" />
               </span>
 
