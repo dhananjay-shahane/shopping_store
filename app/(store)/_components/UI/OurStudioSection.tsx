@@ -5,18 +5,20 @@ import { FadeIn } from './FadeIn';
 
 const OurStudioSection = () => {
   return (
-    <section className="py-12">
-      <div className="bg-accent py-8 text-center mb-10">
-        <h1 className="text-2xl md:text-3xl text-foreground font-medium tracking-wide uppercase">OUR STUDIO</h1>
+    <section className="py-16 md:py-20">
+      <div className="bg-accent py-10 md:py-12 text-center mb-12 md:mb-16">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl text-foreground font-semibold tracking-widest uppercase" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+          OUR STUDIO
+        </h1>
       </div>
 
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-start">
           <FadeIn>
-            <div className="max-w-sm mx-auto md:mx-0">
-              <div className="aspect-[3/4] overflow-hidden">
+            <div className="max-w-md mx-auto md:mx-0">
+              <div className="aspect-[4/5] overflow-hidden shadow-sm">
                 <img 
-                  src="https://picsum.photos/seed/crochetstudio/400/500" 
+                  src="https://picsum.photos/seed/crochetstudio/500/625" 
                   alt="Our Crochet Studio" 
                   className="w-full h-full object-cover"
                 />
@@ -25,7 +27,7 @@ const OurStudioSection = () => {
           </FadeIn>
 
           <FadeIn delay={100}>
-            <div className="space-y-5 text-neutral-700 text-sm md:text-base leading-relaxed">
+            <div className="space-y-6 md:space-y-7 text-neutral-600 text-base md:text-lg leading-relaxed md:leading-loose pt-2 md:pt-4" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
               <p>
                 Welcome to our cozy crochet studio nestled in the heart of Surat. Our small home-based business is lovingly run by a mother daughter duo.
               </p>
