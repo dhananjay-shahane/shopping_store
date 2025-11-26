@@ -9,7 +9,10 @@ export default function CategorySection() {
       <div>
         <FadeIn>
           <div className="bg-accent py-8 text-center mb-8">
-            <h1 className="text-2xl md:text-3xl text-foreground tracking-wide uppercase" style={{ fontFamily: 'Assistant', fontWeight: 300 }}>
+            <h1
+              className="text-2xl md:text-3xl text-foreground tracking-wide uppercase"
+              style={{ fontFamily: "Assistant", fontWeight: 600 }}
+            >
               SHOP BY CATEGORY
             </h1>
           </div>
