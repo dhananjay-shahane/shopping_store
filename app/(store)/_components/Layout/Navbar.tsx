@@ -218,11 +218,11 @@ export default function Navbar() {
             className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center group"
           >
             <div className="flex items-center justify-center gap-0.5 md:gap-1">
-              <div className="opacity-80 group-hover:rotate-12 transition-transform scale-[0.6] md:scale-100">
+              <div className="opacity-80 group-hover:rotate-12 transition-transform scale-[0.5] sm:scale-[0.6] md:scale-100">
                 <NeedleIcon />
               </div>
               <div
-                className="text-xl md:text-3xl lg:text-4xl font-extrabold tracking-tighter leading-none flex"
+                className="text-base sm:text-xl md:text-3xl lg:text-4xl font-extrabold tracking-tighter leading-none flex"
                 style={{ fontFamily: "sans-serif" }}
               >
                 <span className="text-secondary">SUI</span>
@@ -231,22 +231,22 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="flex-1 flex justify-end items-center gap-1 md:gap-6">
+          <div className="flex-1 flex justify-end items-center gap-0.5 sm:gap-1 md:gap-6">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="hover:text-primary transition-colors text-neutral-700 p-1.5 md:p-2"
+              className="hover:text-primary transition-colors text-neutral-700 p-1 sm:p-1.5 md:p-2"
             >
-              <Search size={20} strokeWidth={1.5} className="md:w-[22px] md:h-[22px]" />
+              <Search size={18} strokeWidth={1.5} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
             </button>
             
             {isAuthenticated ? (
               <div className="relative" ref={userMenuRef}>
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="flex items-center gap-1 hover:text-primary transition-colors text-neutral-700 p-1.5 md:p-2"
+                  className="flex items-center gap-1 hover:text-primary transition-colors text-neutral-700 p-1 sm:p-1.5 md:p-2"
                 >
-                  <User size={20} strokeWidth={1.5} className="md:w-[22px] md:h-[22px]" />
-                  <ChevronDown size={14} strokeWidth={1.5} className="hidden md:block" />
+                  <User size={18} strokeWidth={1.5} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
+                  <ChevronDown size={12} strokeWidth={1.5} className="hidden md:block" />
                 </button>
                 
                 {userMenuOpen && (
@@ -293,19 +293,19 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="hover:text-primary transition-colors text-neutral-700 p-1.5 md:p-2"
+                className="hover:text-primary transition-colors text-neutral-700 p-1 sm:p-1.5 md:p-2"
               >
-                <User size={20} strokeWidth={1.5} className="md:w-[22px] md:h-[22px]" />
+                <User size={18} strokeWidth={1.5} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
               </Link>
             )}
             
             <button
               onClick={() => setCartOpen(true)}
-              className="hover:text-primary transition-colors relative text-neutral-700 p-1.5 md:p-2"
+              className="hover:text-primary transition-colors relative text-neutral-700 p-1 sm:p-1.5 md:p-2"
             >
-              <ShoppingBag size={20} strokeWidth={1.5} className="md:w-[22px] md:h-[22px]" />
+              <ShoppingBag size={18} strokeWidth={1.5} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-background text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
+                <span className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 bg-primary text-background text-[9px] sm:text-[10px] w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full flex items-center justify-center shadow-sm">
                   {cartCount}
                 </span>
               )}
