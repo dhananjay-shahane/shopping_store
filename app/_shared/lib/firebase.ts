@@ -54,6 +54,35 @@ export async function logOut() {
   }
 }
 
+export async function sendSignInLinkToEmail(email: string) {
+  try {
+    const { sendSignInLinkToEmail: firebaseSendLink } = await import("firebase/auth");
+    const actionCodeSettings = {
+      url: `${window.location.origin}/login?email=${encodeURIComponent(email)}`,
+      handleCodeInApp: true,
+    };
+    await firebaseSendLink(auth, email, actionCodeSettings);
+    window.localStorage.setItem('emailForSignIn', email);
+    return { success: true, error: null };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
+
+export async function confirmSignInWithEmailLink(email: string, emailLink: string) {
+  try {
+    const { signInWithEmailLink, isSignInWithEmailLink } = await import("firebase/auth");
+    if (isSignInWithEmailLink(auth, emailLink)) {
+      const result = await signInWithEmailLink(auth, email, emailLink);
+      window.localStorage.removeItem('emailForSignIn');
+      return { user: result.user, error: null };
+    }
+    return { user: null, error: 'Invalid sign-in link' };
+  } catch (error: any) {
+    return { user: null, error: error.message };
+  }
+}
+
 export function onAuthChange(callback: (user: User | null) => void) {
   return onAuthStateChanged(auth, callback);
 }

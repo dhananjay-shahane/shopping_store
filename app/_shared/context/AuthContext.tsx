@@ -17,6 +17,8 @@ interface AuthContextType {
   loginWithGoogle: () => Promise<{ success: boolean; error?: string }>;
   loginWithEmail: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
   registerWithEmail: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  sendEmailLink: (email: string) => Promise<{ success: boolean; error?: string }>;
+  confirmEmailLink: (email: string, link: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => Promise<void>;
 }
 
@@ -80,6 +82,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const sendEmailLink = async (email: string) => {
+    try {
+      const { sendSignInLinkToEmail } = await import('@/app/_shared/lib/firebase');
+      const result = await sendSignInLinkToEmail(email);
+      return result;
+    } catch (error: any) {
+      return { success: false, error: error.message };
+    }
+  };
+
+  const confirmEmailLink = async (email: string, link: string) => {
+    try {
+      const { confirmSignInWithEmailLink } = await import('@/app/_shared/lib/firebase');
+      const { user: firebaseUser, error } = await confirmSignInWithEmailLink(email, link);
+      if (error) {
+        return { success: false, error };
+      }
+      return { success: true };
+    } catch (error: any) {
+      return { success: false, error: error.message };
+    }
+  };
+
   const logout = async () => {
     await logOut();
   };
@@ -100,6 +125,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       loginWithGoogle,
       loginWithEmail,
       registerWithEmail,
+      sendEmailLink,
+      confirmEmailLink,
       logout 
     }}>
       {children}
