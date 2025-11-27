@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -14,8 +14,10 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { useCart } from "@/app/_shared/context/CartContext";
+import { useAuth } from "@/app/_shared/context/AuthContext";
 import { PRODUCTS } from "@/app/_shared/constants";
 
 const NeedleIcon = () => (
@@ -40,14 +42,33 @@ const NeedleIcon = () => (
 
 export default function Navbar() {
   const { cartCount, setCartOpen } = useCart();
+  const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState<"collection" | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
 
   const isCollectionActive = pathname.startsWith("/category/");
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLogout = () => {
+    logout();
+    setUserMenuOpen(false);
+    router.push('/');
+  };
 
   const announcements = [
     "Make your own bouquet",
@@ -217,12 +238,71 @@ export default function Navbar() {
             >
               <Search size={22} strokeWidth={1.5} />
             </button>
-            <Link
-              href="/login"
-              className="hidden md:block hover:text-primary transition-colors text-neutral-700 p-2"
-            >
-              <User size={22} strokeWidth={1.5} />
-            </Link>
+            
+            {isAuthenticated ? (
+              <div className="hidden md:block relative" ref={userMenuRef}>
+                <button
+                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  className="flex items-center gap-1 hover:text-primary transition-colors text-neutral-700 p-2"
+                >
+                  <User size={22} strokeWidth={1.5} />
+                  {userMenuOpen ? (
+                    <ChevronUp size={14} strokeWidth={1.5} />
+                  ) : (
+                    <ChevronDown size={14} strokeWidth={1.5} />
+                  )}
+                </button>
+                
+                {userMenuOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-64 bg-white border border-neutral-200 rounded-lg shadow-xl z-50 animate-in fade-in zoom-in-95 duration-200">
+                    <div className="p-4 border-b border-neutral-100">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center">
+                          <User size={20} className="text-neutral-500" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm text-neutral-900 truncate">{user?.email}</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="py-2">
+                      <Link
+                        href="/profile"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50"
+                      >
+                        Profile
+                      </Link>
+                      <Link
+                        href="/orders"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50"
+                      >
+                        Orders
+                      </Link>
+                    </div>
+                    
+                    <div className="border-t border-neutral-100 py-2">
+                      <button
+                        onClick={handleLogout}
+                        className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50"
+                      >
+                        Sign out
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="hidden md:block hover:text-primary transition-colors text-neutral-700 p-2"
+              >
+                <User size={22} strokeWidth={1.5} />
+              </Link>
+            )}
+            
             <button
               onClick={() => setCartOpen(true)}
               className="hover:text-primary transition-colors relative text-neutral-700 p-2"
@@ -385,13 +465,44 @@ export default function Navbar() {
               </div>
 
               <div className="p-6 mt-auto">
-                <button
-                  onClick={() => handleNavigate("/login")}
-                  className="flex items-center gap-3 text-neutral-700"
-                >
-                  <User size={22} strokeWidth={1.5} />
-                  <span className="text-base font-normal">Log in</span>
-                </button>
+                {isAuthenticated ? (
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-neutral-700 pb-3 border-b border-neutral-100">
+                      <User size={22} strokeWidth={1.5} />
+                      <span className="text-sm truncate">{user?.email}</span>
+                    </div>
+                    <button
+                      onClick={() => handleNavigate("/profile")}
+                      className="block w-full text-left text-base font-normal text-neutral-700"
+                    >
+                      Profile
+                    </button>
+                    <button
+                      onClick={() => handleNavigate("/orders")}
+                      className="block w-full text-left text-base font-normal text-neutral-700"
+                    >
+                      Orders
+                    </button>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setMobileMenuOpen(false);
+                        router.push('/');
+                      }}
+                      className="block w-full text-left text-base font-normal text-neutral-700"
+                    >
+                      Sign out
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => handleNavigate("/login")}
+                    className="flex items-center gap-3 text-neutral-700"
+                  >
+                    <User size={22} strokeWidth={1.5} />
+                    <span className="text-base font-normal">Log in</span>
+                  </button>
+                )}
               </div>
             </div>
 
