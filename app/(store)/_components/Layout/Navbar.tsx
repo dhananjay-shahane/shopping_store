@@ -240,17 +240,13 @@ export default function Navbar() {
             </button>
             
             {isAuthenticated ? (
-              <div className="hidden md:block relative" ref={userMenuRef}>
+              <div className="relative" ref={userMenuRef}>
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
                   className="flex items-center gap-1 hover:text-primary transition-colors text-neutral-700 p-2"
                 >
                   <User size={22} strokeWidth={1.5} />
-                  {userMenuOpen ? (
-                    <ChevronUp size={14} strokeWidth={1.5} />
-                  ) : (
-                    <ChevronDown size={14} strokeWidth={1.5} />
-                  )}
+                  <ChevronDown size={14} strokeWidth={1.5} className="hidden md:block" />
                 </button>
                 
                 {userMenuOpen && (
@@ -297,7 +293,7 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="hidden md:block hover:text-primary transition-colors text-neutral-700 p-2"
+                className="hover:text-primary transition-colors text-neutral-700 p-2"
               >
                 <User size={22} strokeWidth={1.5} />
               </Link>
