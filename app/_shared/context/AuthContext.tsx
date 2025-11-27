@@ -1,55 +1,107 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { auth, signInWithGoogle, signUpWithEmail, signInWithEmail, logOut, onAuthChange, User } from '@/app/_shared/lib/firebase';
 
-interface User {
+interface AuthUser {
   email: string;
   name?: string;
-  avatar?: string;
+  uid: string;
+  photoURL?: string;
 }
 
 interface AuthContextType {
-  user: User | null;
+  user: AuthUser | null;
   isAuthenticated: boolean;
-  login: (email: string, name?: string) => void;
-  logout: () => void;
+  isLoading: boolean;
+  loginWithGoogle: () => Promise<{ success: boolean; error?: string }>;
+  loginWithEmail: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  registerWithEmail: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+function mapFirebaseUser(firebaseUser: User | null): AuthUser | null {
+  if (!firebaseUser) return null;
+  return {
+    email: firebaseUser.email || '',
+    name: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || '',
+    uid: firebaseUser.uid,
+    photoURL: firebaseUser.photoURL || undefined,
+  };
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch {
-        localStorage.removeItem('user');
-      }
-    }
-    setIsLoading(false);
+    const unsubscribe = onAuthChange((firebaseUser) => {
+      setUser(mapFirebaseUser(firebaseUser));
+      setIsLoading(false);
+    });
+    return () => unsubscribe();
   }, []);
 
-  const login = (email: string, name?: string) => {
-    const newUser = { email, name: name || email.split('@')[0] };
-    setUser(newUser);
-    localStorage.setItem('user', JSON.stringify(newUser));
+  const loginWithGoogle = async () => {
+    try {
+      const { user: firebaseUser, error } = await signInWithGoogle();
+      if (error) {
+        return { success: false, error };
+      }
+      return { success: true };
+    } catch (error: any) {
+      return { success: false, error: error.message };
+    }
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('user');
+  const loginWithEmail = async (email: string, password: string) => {
+    try {
+      const { user: firebaseUser, error } = await signInWithEmail(email, password);
+      if (error) {
+        return { success: false, error };
+      }
+      return { success: true };
+    } catch (error: any) {
+      return { success: false, error: error.message };
+    }
+  };
+
+  const registerWithEmail = async (email: string, password: string) => {
+    try {
+      const { user: firebaseUser, error } = await signUpWithEmail(email, password);
+      if (error) {
+        return { success: false, error };
+      }
+      return { success: true };
+    } catch (error: any) {
+      return { success: false, error: error.message };
+    }
+  };
+
+  const logout = async () => {
+    await logOut();
   };
 
   if (isLoading) {
-    return null;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-neutral-900"></div>
+      </div>
+    );
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, login, logout }}>
+    <AuthContext.Provider value={{ 
+      user, 
+      isAuthenticated: !!user, 
+      isLoading,
+      loginWithGoogle,
+      loginWithEmail,
+      registerWithEmail,
+      logout 
+    }}>
       {children}
     </AuthContext.Provider>
   );

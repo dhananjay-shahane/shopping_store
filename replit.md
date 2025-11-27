@@ -46,7 +46,35 @@ styles/
 └── globals.css           # Global Tailwind CSS styles
 ```
 
-## Recent Changes (November 26, 2025)
+## Recent Changes (November 27, 2025)
+
+### User Authentication (NEW)
+- **Login Page**: Redesigned with Google sign-in and email OTP flow
+  - "Sign in with Google" button for quick authentication
+  - Email-based login with 6-digit OTP verification
+  - Clean, minimal UI matching professional design standards
+- **Protected Routes**: Orders and Profile pages require authentication
+  - Automatic redirect to login page for unauthenticated users
+  - Route protection using useEffect and router.push
+- **Orders Page**: Displays user order history
+  - "No orders yet" state with link to shop
+  - Footer with policy links
+- **Profile Page**: User profile management
+  - Name editing with edit button
+  - Email display (read-only)
+  - Address management with add/edit functionality
+- **User Dropdown Menu**: Added to Navbar when authenticated
+  - Shows user email
+  - Links to Profile and Orders
+  - Sign out option
+  - Mobile menu support for authenticated users
+- **Session Persistence**: Authentication persists across page refreshes (localStorage)
+
+### Context Providers
+- Added AuthContext for user authentication state management
+- AuthProvider wraps the entire application in root layout
+
+## Previous Changes (November 26, 2025)
 
 ### UI Updates
 - **Header Navigation**: Updated active page styling with underline indicator for Shop All and Contact Us

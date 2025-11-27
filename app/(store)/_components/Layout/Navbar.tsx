@@ -64,8 +64,8 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     setUserMenuOpen(false);
     router.push('/');
   };
@@ -484,8 +484,8 @@ export default function Navbar() {
                       Orders
                     </button>
                     <button
-                      onClick={() => {
-                        logout();
+                      onClick={async () => {
+                        await logout();
                         setMobileMenuOpen(false);
                         router.push('/');
                       }}
