@@ -95,7 +95,7 @@ export default function AccountHeader() {
                     onClick={() => setUserMenuOpen(false)}
                     className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50"
                   >
-                    Orders
+                    Settings
                   </Link>
                 </div>
                 

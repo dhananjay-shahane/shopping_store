@@ -48,7 +48,6 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
@@ -66,11 +65,9 @@ export default function Navbar() {
   }, []);
 
   const handleLogout = async () => {
-    setIsLoggingOut(true);
-    setUserMenuOpen(false);
     await logout();
+    setUserMenuOpen(false);
     router.push('/');
-    setIsLoggingOut(false);
   };
 
   const announcements = [
@@ -244,23 +241,17 @@ export default function Navbar() {
             
             {isAuthenticated ? (
               <div className="hidden md:block relative" ref={userMenuRef}>
-                {isLoggingOut ? (
-                  <div className="p-2">
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-neutral-700"></div>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => setUserMenuOpen(!userMenuOpen)}
-                    className="flex items-center gap-1 hover:text-primary transition-colors text-neutral-700 p-2"
-                  >
-                    <User size={22} strokeWidth={1.5} />
-                    {userMenuOpen ? (
-                      <ChevronUp size={14} strokeWidth={1.5} />
-                    ) : (
-                      <ChevronDown size={14} strokeWidth={1.5} />
-                    )}
-                  </button>
-                )}
+                <button
+                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  className="flex items-center gap-1 hover:text-primary transition-colors text-neutral-700 p-2"
+                >
+                  <User size={22} strokeWidth={1.5} />
+                  {userMenuOpen ? (
+                    <ChevronUp size={14} strokeWidth={1.5} />
+                  ) : (
+                    <ChevronDown size={14} strokeWidth={1.5} />
+                  )}
+                </button>
                 
                 {userMenuOpen && (
                   <div className="absolute right-0 top-full mt-2 w-64 bg-white border border-neutral-200 rounded-lg shadow-xl z-50 animate-in fade-in zoom-in-95 duration-200">
@@ -494,22 +485,13 @@ export default function Navbar() {
                     </button>
                     <button
                       onClick={async () => {
-                        setIsLoggingOut(true);
-                        setMobileMenuOpen(false);
                         await logout();
+                        setMobileMenuOpen(false);
                         router.push('/');
-                        setIsLoggingOut(false);
                       }}
-                      className="block w-full text-left text-base font-normal text-neutral-700 flex items-center gap-2"
+                      className="block w-full text-left text-base font-normal text-neutral-700"
                     >
-                      {isLoggingOut ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-neutral-700"></div>
-                          Signing out...
-                        </>
-                      ) : (
-                        'Sign out'
-                      )}
+                      Sign out
                     </button>
                   </div>
                 ) : (
