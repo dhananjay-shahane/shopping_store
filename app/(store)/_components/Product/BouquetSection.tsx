@@ -74,7 +74,7 @@ const BouquetSection = () => {
       <section className="py-4">
         <SectionHeading title="Make your own bouquet" />
 
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="container max-w-6xl mx-auto">
           <div className="mb-8 space-y-1 text-neutral-600 text-md">
             <p>1. Add your favourite flowers to the cart</p>
             <p>2. Add a choosing of your favourite sheet</p>

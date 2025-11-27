@@ -54,7 +54,7 @@ const BestsellerSection = () => {
     <section className="py-12">
       <SectionHeading title="BESTSELLER" className="mb-10" />
 
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container max-w-6xl mx-auto">
         <FadeIn>
           <div className="bg-accent p-6 md:p-10">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">

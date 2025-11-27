@@ -28,7 +28,7 @@ export default function HomePage() {
 
       <TestimonialSection />
 
-      <section className="py-20 border-t border-neutral-100">
+      <section className="max-w-6xl mx-auto border-t border-neutral-100">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <FadeIn delay={0} className="flex flex-col items-center">
             <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center text-primary mb-6">

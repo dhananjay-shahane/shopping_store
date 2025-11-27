@@ -15,7 +15,7 @@ export default function ContactPage() {
         </h1>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           <div className="space-y-8">
             <div>

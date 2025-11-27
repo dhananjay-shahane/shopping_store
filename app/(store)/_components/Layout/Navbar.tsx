@@ -47,7 +47,7 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const isCollectionActive = pathname.startsWith('/category/');
+  const isCollectionActive = pathname.startsWith("/category/");
 
   const announcements = [
     "Make your own bouquet",
@@ -115,7 +115,7 @@ export default function Navbar() {
       {!mobileMenuOpen && <AnnouncementBar />}
 
       <header className="sticky top-0 bg-background/95 backdrop-blur-md z-10 border-b border-neutral-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] transition-all">
-        <div className="container mx-auto px-4 md:px-8 h-16 md:h-24 flex items-center justify-between relative">
+        <div className="container max-w-7xl mx-auto h-16 md:h-24 flex items-center justify-between relative">
           <button
             className="md:hidden z-50 text-neutral-800 p-2 -ml-2"
             onClick={toggleMobileMenu}
@@ -150,8 +150,14 @@ export default function Navbar() {
             </Link>
 
             <div className="relative group h-full flex items-center">
-              <span className={`flex items-center gap-1 hover:text-foreground transition-colors cursor-pointer ${isCollectionActive ? 'text-foreground border-b-2 border-foreground pb-1' : 'pb-1'}`}>
-                Collection <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-200" />
+              <span
+                className={`flex items-center gap-1 hover:text-foreground transition-colors cursor-pointer ${isCollectionActive ? "text-foreground border-b-2 border-foreground pb-1" : "pb-1"}`}
+              >
+                Collection{" "}
+                <ChevronDown
+                  size={14}
+                  className="group-hover:rotate-180 transition-transform duration-200"
+                />
               </span>
 
               <div className="absolute top-full left-0 w-72 bg-background border border-neutral-100 shadow-xl hidden group-hover:block z-50 animate-in fade-in zoom-in-95 duration-200">

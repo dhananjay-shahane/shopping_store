@@ -1,41 +1,42 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
-import { ChevronDown, ChevronLeft, ChevronRight, Check } from 'lucide-react';
-import { PRODUCTS } from '@/app/_shared/constants';
-import ProductCard from '../_components/Product/ProductCard';
+import React, { useState, useMemo } from "react";
+import { ChevronDown, ChevronLeft, ChevronRight, Check } from "lucide-react";
+import { PRODUCTS } from "@/app/_shared/constants";
+import ProductCard from "../_components/Product/ProductCard";
 
 export default function ShopPage() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8; 
-  
-  const [sortOption, setSortOption] = useState('featured');
-  const [priceFilter, setPriceFilter] = useState('all');
+  const itemsPerPage = 8;
+
+  const [sortOption, setSortOption] = useState("featured");
+  const [priceFilter, setPriceFilter] = useState("all");
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const processedProducts = useMemo(() => {
     let result = [...PRODUCTS];
 
-    if (priceFilter !== 'all') {
-      result = result.filter(p => {
-        if (priceFilter === 'under-1000') return p.price < 1000;
-        if (priceFilter === '1000-3000') return p.price >= 1000 && p.price <= 3000;
-        if (priceFilter === 'above-3000') return p.price > 3000;
+    if (priceFilter !== "all") {
+      result = result.filter((p) => {
+        if (priceFilter === "under-1000") return p.price < 1000;
+        if (priceFilter === "1000-3000")
+          return p.price >= 1000 && p.price <= 3000;
+        if (priceFilter === "above-3000") return p.price > 3000;
         return true;
       });
     }
 
     switch (sortOption) {
-      case 'alpha-asc':
+      case "alpha-asc":
         result.sort((a, b) => a.name.localeCompare(b.name));
         break;
-      case 'alpha-desc':
+      case "alpha-desc":
         result.sort((a, b) => b.name.localeCompare(a.name));
         break;
-      case 'price-asc':
+      case "price-asc":
         result.sort((a, b) => a.price - b.price);
         break;
-      case 'price-desc':
+      case "price-desc":
         result.sort((a, b) => b.price - a.price);
         break;
       default:
@@ -47,12 +48,15 @@ export default function ShopPage() {
 
   const totalPages = Math.ceil(processedProducts.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentProducts = processedProducts.slice(startIndex, startIndex + itemsPerPage);
+  const currentProducts = processedProducts.slice(
+    startIndex,
+    startIndex + itemsPerPage,
+  );
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -61,85 +65,168 @@ export default function ShopPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-16" onClick={() => setActiveDropdown(null)}>
+    <div
+      className="min-h-screen bg-background pb-16"
+      onClick={() => setActiveDropdown(null)}
+    >
       <div className="bg-accent py-16 text-center mb-12">
-        <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">PRODUCTS</h1>
+        <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">
+          PRODUCTS
+        </h1>
       </div>
-      
-      <div className="container mx-auto px-4">
+
+      <div className="container max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 text-sm text-neutral-600 border-b border-neutral-100 pb-4 gap-4 relative z-20">
           <div className="flex items-center gap-6">
             <span className="font-medium text-foreground">Filter:</span>
-            
-            <div className="relative group cursor-pointer" onClick={(e) => { e.stopPropagation(); toggleDropdown('availability'); }}>
+
+            <div
+              className="relative group cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleDropdown("availability");
+              }}
+            >
               <div className="flex items-center gap-1 hover:text-primary transition-colors">
                 Availability <ChevronDown size={14} />
               </div>
-              {activeDropdown === 'availability' && (
+              {activeDropdown === "availability" && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-neutral-100 shadow-lg rounded-sm py-2 z-30 animate-in fade-in zoom-in-95 duration-200">
                   <div className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between text-neutral-800">
-                    <span>In Stock (All)</span> <Check size={14} className="text-primary"/>
+                    <span>In Stock (All)</span>{" "}
+                    <Check size={14} className="text-primary" />
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="relative group cursor-pointer" onClick={(e) => { e.stopPropagation(); toggleDropdown('price'); }}>
-              <div className={`flex items-center gap-1 hover:text-primary transition-colors ${priceFilter !== 'all' ? 'text-primary font-medium' : ''}`}>
-                Price {priceFilter !== 'all' ? `(${priceFilter})` : ''} <ChevronDown size={14} />
+            <div
+              className="relative group cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleDropdown("price");
+              }}
+            >
+              <div
+                className={`flex items-center gap-1 hover:text-primary transition-colors ${priceFilter !== "all" ? "text-primary font-medium" : ""}`}
+              >
+                Price {priceFilter !== "all" ? `(${priceFilter})` : ""}{" "}
+                <ChevronDown size={14} />
               </div>
-              {activeDropdown === 'price' && (
+              {activeDropdown === "price" && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-neutral-100 shadow-lg rounded-sm py-2 z-30 animate-in fade-in zoom-in-95 duration-200">
-                  <div onClick={() => setPriceFilter('all')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>All</span> {priceFilter === 'all' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setPriceFilter("all")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>All</span>{" "}
+                    {priceFilter === "all" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
-                  <div onClick={() => setPriceFilter('under-1000')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>Under Rs. 1000</span> {priceFilter === 'under-1000' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setPriceFilter("under-1000")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>Under Rs. 1000</span>{" "}
+                    {priceFilter === "under-1000" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
-                  <div onClick={() => setPriceFilter('1000-3000')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>Rs. 1000 - Rs. 3000</span> {priceFilter === '1000-3000' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setPriceFilter("1000-3000")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>Rs. 1000 - Rs. 3000</span>{" "}
+                    {priceFilter === "1000-3000" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
-                  <div onClick={() => setPriceFilter('above-3000')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>Above Rs. 3000</span> {priceFilter === 'above-3000' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setPriceFilter("above-3000")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>Above Rs. 3000</span>{" "}
+                    {priceFilter === "above-3000" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
                 </div>
               )}
             </div>
           </div>
-          
+
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 relative" onClick={(e) => { e.stopPropagation(); toggleDropdown('sort'); }}>
+            <div
+              className="flex items-center gap-2 relative"
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleDropdown("sort");
+              }}
+            >
               <span className="font-medium text-foreground">Sort by:</span>
               <div className="cursor-pointer flex items-center gap-1 hover:text-primary transition-colors">
-                {sortOption === 'featured' && 'Featured'}
-                {sortOption === 'alpha-asc' && 'Alphabetically, A-Z'}
-                {sortOption === 'alpha-desc' && 'Alphabetically, Z-A'}
-                {sortOption === 'price-asc' && 'Price, low to high'}
-                {sortOption === 'price-desc' && 'Price, high to low'}
+                {sortOption === "featured" && "Featured"}
+                {sortOption === "alpha-asc" && "Alphabetically, A-Z"}
+                {sortOption === "alpha-desc" && "Alphabetically, Z-A"}
+                {sortOption === "price-asc" && "Price, low to high"}
+                {sortOption === "price-desc" && "Price, high to low"}
                 <ChevronDown size={14} />
               </div>
 
-              {activeDropdown === 'sort' && (
+              {activeDropdown === "sort" && (
                 <div className="absolute top-full right-0 mt-2 w-56 bg-background border border-neutral-100 shadow-lg rounded-sm py-2 z-30 animate-in fade-in zoom-in-95 duration-200">
-                  <div onClick={() => setSortOption('featured')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>Featured</span> {sortOption === 'featured' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setSortOption("featured")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>Featured</span>{" "}
+                    {sortOption === "featured" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
-                  <div onClick={() => setSortOption('alpha-asc')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>Alphabetically, A-Z</span> {sortOption === 'alpha-asc' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setSortOption("alpha-asc")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>Alphabetically, A-Z</span>{" "}
+                    {sortOption === "alpha-asc" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
-                  <div onClick={() => setSortOption('alpha-desc')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>Alphabetically, Z-A</span> {sortOption === 'alpha-desc' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setSortOption("alpha-desc")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>Alphabetically, Z-A</span>{" "}
+                    {sortOption === "alpha-desc" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
-                  <div onClick={() => setSortOption('price-asc')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>Price, low to high</span> {sortOption === 'price-asc' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setSortOption("price-asc")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>Price, low to high</span>{" "}
+                    {sortOption === "price-asc" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
-                  <div onClick={() => setSortOption('price-desc')} className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between">
-                    <span>Price, high to low</span> {sortOption === 'price-desc' && <Check size={14} className="text-primary"/>}
+                  <div
+                    onClick={() => setSortOption("price-desc")}
+                    className="px-4 py-2 hover:bg-neutral-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>Price, high to low</span>{" "}
+                    {sortOption === "price-desc" && (
+                      <Check size={14} className="text-primary" />
+                    )}
                   </div>
                 </div>
               )}
             </div>
-            <span className="text-neutral-500">{processedProducts.length} products</span>
+            <span className="text-neutral-500">
+              {processedProducts.length} products
+            </span>
           </div>
         </div>
 
@@ -152,7 +239,15 @@ export default function ShopPage() {
         ) : (
           <div className="text-center py-20 text-neutral-500">
             <p>No products match your filters.</p>
-            <button onClick={() => {setPriceFilter('all'); setSortOption('featured');}} className="mt-4 text-primary hover:underline">Clear Filters</button>
+            <button
+              onClick={() => {
+                setPriceFilter("all");
+                setSortOption("featured");
+              }}
+              className="mt-4 text-primary hover:underline"
+            >
+              Clear Filters
+            </button>
           </div>
         )}
 
@@ -164,30 +259,36 @@ export default function ShopPage() {
                 for (let i = 1; i <= totalPages; i++) pages.push(i);
               } else {
                 pages.push(1);
-                if (currentPage > 3) pages.push('...');
-                for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
+                if (currentPage > 3) pages.push("...");
+                for (
+                  let i = Math.max(2, currentPage - 1);
+                  i <= Math.min(totalPages - 1, currentPage + 1);
+                  i++
+                ) {
                   pages.push(i);
                 }
-                if (currentPage < totalPages - 2) pages.push('...');
+                if (currentPage < totalPages - 2) pages.push("...");
                 pages.push(totalPages);
               }
-              return pages.map((page, idx) => (
-                typeof page === 'number' ? (
+              return pages.map((page, idx) =>
+                typeof page === "number" ? (
                   <button
                     key={idx}
                     onClick={() => handlePageChange(page)}
-                    className={`transition-all ${currentPage === page ? 'text-foreground border-b border-foreground pb-1' : 'hover:text-foreground'}`}
+                    className={`transition-all ${currentPage === page ? "text-foreground border-b border-foreground pb-1" : "hover:text-foreground"}`}
                   >
                     {page}
                   </button>
                 ) : (
-                  <span key={idx} className="text-neutral-400">{page}</span>
-                )
-              ));
+                  <span key={idx} className="text-neutral-400">
+                    {page}
+                  </span>
+                ),
+              );
             })()}
-            
-            <button 
-              onClick={() => handlePageChange(currentPage + 1)} 
+
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
               className="hover:text-foreground disabled:opacity-30 transition-colors"
             >

@@ -10,7 +10,7 @@ export default function CategorySection() {
       <div>
         <SectionHeading title="SHOP BY CATEGORY" />
 
-        <div className="container mx-auto px-4 md:px-16">
+        <div className="container max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
             {CATEGORIES.map((cat, idx) => (
               <FadeIn key={cat.id} delay={idx * 50} className="mb-2">

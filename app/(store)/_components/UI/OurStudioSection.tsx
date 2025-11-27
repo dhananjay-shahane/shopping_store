@@ -9,7 +9,7 @@ const OurStudioSection = () => {
     <section className="py-6 md:py-4">
       <SectionHeading title="OUR STUDIO" />
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+      <div className="container max-w-6xl mx-auto">
         <div
           className="grid md:grid-cols-2 gap-10 md:gap-6 lg:gap-10 items-start"
           style={{ justifyItems: "end" }}
