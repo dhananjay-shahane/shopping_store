@@ -76,7 +76,7 @@ export default function ProductDetailPage() {
 
   return (
     <div className="min-h-screen bg-background pb-16">
-      <div className="container max-w-6xl mx-auto py-8">
+      <div className="container max-w-6xl mx-auto py-8 px-5 xl:px-0">
         <div className="text-xs uppercase tracking-widest text-neutral-500 mb-8">
           <span
             className="cursor-pointer hover:text-primary"

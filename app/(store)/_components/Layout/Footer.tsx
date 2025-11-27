@@ -8,7 +8,7 @@ import { FadeIn } from "../UI/FadeIn";
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-neutral-100 pt-16 pb-8 text-foreground">
-      <div className="container max-w-7xl mx-auto">
+      <div className="container max-w-7xl mx-auto px-5 xl:px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <FadeIn delay={0} className="md:col-span-1">
             <div className="flex items-center mb-6">

@@ -11,7 +11,7 @@ export default function StudioPage() {
             </h2>
          </div>
 
-         <div className="container max-w-6xl mx-auto py-8">
+         <div className="container max-w-6xl mx-auto py-8 px-5 xl:px-0">
             <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start max-w-5xl mx-auto">
                <div className="flex justify-center md:justify-end">
                   <div className="w-64 md:w-80">

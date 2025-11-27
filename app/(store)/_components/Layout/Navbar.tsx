@@ -115,7 +115,7 @@ export default function Navbar() {
       {!mobileMenuOpen && <AnnouncementBar />}
 
       <header className="sticky top-0 bg-background/95 backdrop-blur-md z-10 border-b border-neutral-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] transition-all">
-        <div className="container max-w-7xl mx-auto h-16 md:h-24 flex items-center justify-between relative">
+        <div className="container max-w-7xl mx-auto h-16 md:h-24 flex items-center justify-between relative px-5 xl:px-0">
           <button
             className="md:hidden z-50 text-neutral-800 p-2 -ml-2"
             onClick={toggleMobileMenu}

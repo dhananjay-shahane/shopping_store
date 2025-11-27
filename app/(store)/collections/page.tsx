@@ -1,44 +1,73 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { CATEGORIES } from '@/app/_shared/constants';
-import { FadeIn } from '../_components/UI/FadeIn';
+import React from "react";
+import Link from "next/link";
+import { CATEGORIES } from "@/app/_shared/constants";
+import { FadeIn } from "../_components/UI/FadeIn";
 
 export default function CollectionsPage() {
   return (
     <div className="bg-background min-h-screen pb-20">
       <div className="bg-accent py-16 text-center mb-12">
-        <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">ALL COLLECTIONS</h1>
+        <h1 className="text-4xl md:text-5xl text-foreground font-normal tracking-wide uppercase">
+          ALL COLLECTIONS
+        </h1>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <FadeIn delay={0}>
-            <Link href="/category/bouquet" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
-              <img src="/images/products/crochet_flower_bouqu_a44aff12.jpg" alt="Bouquets" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <Link
+              href="/category/bouquet"
+              className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg"
+            >
+              <img
+                src="/images/products/crochet_flower_bouqu_a44aff12.jpg"
+                alt="Bouquets"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
               <div className="absolute inset-0 bg-foreground/30 group-hover:bg-foreground/40 transition-colors flex items-center justify-center">
-                 <h2 className="text-3xl md:text-4xl text-background font-bold uppercase tracking-widest">Bouquets</h2>
+                <h2 className="text-3xl md:text-4xl text-background font-bold uppercase tracking-widest">
+                  Bouquets
+                </h2>
               </div>
             </Link>
           </FadeIn>
           <FadeIn delay={100}>
-            <Link href="/category/plushies" className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg">
-              <img src="/images/products/crochet_plushie_toy__9982db6b.jpg" alt="Plushies" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <Link
+              href="/category/plushies"
+              className="block relative aspect-[16/9] group overflow-hidden cursor-pointer rounded-lg"
+            >
+              <img
+                src="/images/products/crochet_plushie_toy__9982db6b.jpg"
+                alt="Plushies"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
               <div className="absolute inset-0 bg-foreground/30 group-hover:bg-foreground/40 transition-colors flex items-center justify-center">
-                 <h2 className="text-3xl md:text-4xl text-background font-bold uppercase tracking-widest">Plushies</h2>
+                <h2 className="text-3xl md:text-4xl text-background font-bold uppercase tracking-widest">
+                  Plushies
+                </h2>
               </div>
             </Link>
           </FadeIn>
         </div>
 
-        <h2 className="text-2xl font-bold text-foreground mb-8 text-center uppercase tracking-widest">Shop By Theme</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-8 text-center uppercase tracking-widest">
+          Shop By Theme
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {CATEGORIES.map((cat, idx) => (
             <FadeIn key={cat.id} delay={idx * 50}>
-              <Link href={`/category/${cat.name.toLowerCase()}`} className="group cursor-pointer text-center block">
+              <Link
+                href={`/category/${cat.name.toLowerCase()}`}
+                className="group cursor-pointer text-center block"
+              >
                 <div className="aspect-square rounded-full overflow-hidden border-4 border-neutral-100 group-hover:border-primary-200 transition-all mb-4 mx-auto max-w-[200px]">
-                  <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-neutral-800 uppercase tracking-widest group-hover:text-primary transition-colors">
                   {cat.name}
