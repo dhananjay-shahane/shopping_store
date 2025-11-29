@@ -60,6 +60,42 @@ export interface ChatMessage {
   text: string;
 }
 
+export interface OrderTimeline {
+  status: string;
+  date: string;
+  description: string;
+  completed: boolean;
+}
+
+export interface ShippingAddress {
+  firstName: string;
+  lastName: string;
+  address: string;
+  apartment?: string;
+  city: string;
+  state: string;
+  pinCode: string;
+  phone: string;
+  country: string;
+}
+
+export interface Order {
+  id: string;
+  items: CartItem[];
+  shippingAddress: ShippingAddress;
+  email: string;
+  subtotal: number;
+  shipping: number;
+  discount: number;
+  total: number;
+  paymentId: string;
+  paymentMethod: string;
+  status: 'pending' | 'confirmed' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
+  timeline: OrderTimeline[];
+  createdAt: string;
+  updatedAt: string;
+}
+
 declare global {
   interface Window {
     Razorpay: any;

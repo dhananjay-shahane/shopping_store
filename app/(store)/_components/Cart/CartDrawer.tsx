@@ -1,15 +1,17 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { X, Minus, Plus, CreditCard } from 'lucide-react';
 import { useCart } from '@/app/_shared/context/CartContext';
+import { useRouter } from 'next/navigation';
 
 export const CartDrawer = () => {
   const { isCartOpen, setCartOpen, cart, removeFromCart, updateCartQuantity, cartTotal, clearCart } = useCart();
+  const router = useRouter();
 
-  const handlePayment = () => {
-    alert("Razorpay Payment would trigger here in production.");
-    clearCart();
+  const handleCheckout = () => {
+    router.push('/payment');
   };
 
   return (
@@ -72,7 +74,7 @@ export const CartDrawer = () => {
               <span className="font-medium">Subtotal</span>
               <span className="font-bold">Rs. {cartTotal.toLocaleString()}</span>
             </div>
-            <button onClick={handlePayment} className="w-full bg-foreground text-background py-4 font-bold uppercase text-xs tracking-widest hover:bg-neutral-800 transition-colors flex justify-center items-center gap-2">
+            <button onClick={handleCheckout} className="w-full bg-foreground text-background py-4 font-bold uppercase text-xs tracking-widest hover:bg-neutral-800 transition-colors flex justify-center items-center gap-2">
               <CreditCard size={16}/> Checkout
             </button>
           </div>

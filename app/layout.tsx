@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { CartProvider } from "@/app/_shared/context/CartContext";
 import { AuthProvider } from "@/app/_shared/context/AuthContext";
+import { OrderProvider } from "@/app/_shared/context/OrderContext";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -27,7 +28,9 @@ export default function RootLayout({
         style={{ fontFamily: "Assistant, sans-serif" }}
       >
         <AuthProvider>
-          <CartProvider>{children}</CartProvider>
+          <OrderProvider>
+            <CartProvider>{children}</CartProvider>
+          </OrderProvider>
         </AuthProvider>
       </body>
     </html>
